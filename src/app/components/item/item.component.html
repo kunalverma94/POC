@@ -1,43 +1,40 @@
-<div class="card">
-  <mat-card>
-    <div class="item-image">
-      <img mat-card-image src="{{ data.links.mission_patch_small }}" height="200" width="200" />
+<div class="grid-item">
+  <div class="image">
+    <img width="70%" src="{{ data.links.mission_patch_small }}" alt="Photo of a Shiba Inu" />
+  </div>
+  <div class="card-content">
+    <div class="card-title blue-label bold">{{ data.mission_name }} # {{ data.flight_number }}</div>
+    <div class="mission-ids">
+      <div class="item-label bold">Mission Ids</div>
+      <div class="list-missions blue-label">
+        <ul *ngIf="data.mission_id && data.mission_id.length > 0; else no_content">
+          <li *ngFor="let mi of data.mission_id">{{ mi }}</li>
+        </ul>
+      </div>
     </div>
-    <mat-card-content>
-      <div class="misson-name">{{ data.mission_name }} # {{ data.flight_number }}</div>
-
-      <div class="mission-ids">
-        <div class="item-label">Mission Ids</div>
-        <div class="list-missions">
-          <ul *ngIf="data.mission_id && data.mission_id.length > 0; else no_content">
-            <li *ngFor="let mi of data.mission_id">{{ mi }}</li>
-          </ul>
+    <div class="details">
+      <div class="item-detail-row">
+        <div class="item-label bold">Launch Year</div>
+        <div class="item-detail-child blue-label">
+          {{ data.launch_year }}
         </div>
       </div>
-      <div class="details">
-        <div class="item-detail-row">
-          <div class="item-label">Launch Year</div>
-          <div class="item-detail-child">
-            {{ data.launch_year }}
-          </div>
-        </div>
 
-        <div class="item-detail-row">
-          <div class="item-label">Successful Launch</div>
-          <div class="item-detail-child">
-            {{ data.launch_success | booleanEmojiPipe }}
-          </div>
-        </div>
-
-        <div class="item-detail-row">
-          <div class="item-label">Successful Landing</div>
-          <div class="item-detail-child">
-            {{ data.launch_success | booleanEmojiPipe }}
-          </div>
+      <div class="item-detail-row">
+        <div class="item-label bold">Successful Launch</div>
+        <div class="item-detail-child">
+          {{ data.launch_success | booleanEmojiPipe }}
         </div>
       </div>
-    </mat-card-content>
-  </mat-card>
+
+      <div class="item-detail-row">
+        <div class="item-label bold">Successful Landing</div>
+        <div class="item-detail-child">
+          {{ data.launch_success | booleanEmojiPipe }}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <ng-template #no_content>

@@ -6,7 +6,10 @@ export const environment = {
   production: false,
   title: 'SpaceX Launch Programs',
   API: {
-    spaceXData: 'https://api.spaceXdata.com/v3/',
+    spaceXData: 'https://api.spaceXdata.com/v3/launches?',
+  },
+  appsettings: {
+    limit: 100,
   },
 };
 

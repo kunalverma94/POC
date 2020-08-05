@@ -1,5 +1,6 @@
-<div class="list-flex">
-  <div class="item-flex" *ngFor="let item of list">
-    <app-item [data]="item"></app-item>
-  </div>
+<div class="grid-container" *ngIf="list && list.length > 0; else loading">
+  <app-item *ngFor="let item of list" [data]="item"></app-item>
 </div>
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

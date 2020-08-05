@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SpaceXDataService } from './../../services/space-x-data-service/space-x-data.service';
 
 @Component({
@@ -6,11 +6,14 @@ import { SpaceXDataService } from './../../services/space-x-data-service/space-x
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
   public list: any[];
+
+  public column: number;
   constructor(private svc: SpaceXDataService) {}
+  ngOnDestroy(): void {}
 
   ngOnInit(): void {
-    this.svc.getList().subscribe((x) => (this.list = x));
+    this.svc.spaceData.subscribe((x) => (this.list = x));
   }
 }

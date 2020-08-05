@@ -12,6 +12,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { NavComponent } from './components/shared/nav/nav.component';
 import { MaterialUIModule } from './modules/material-module';
 import { BooleanEmojiPipe } from './pipes/boolean-Emoji-pipe';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { BooleanEmojiPipe } from './pipes/boolean-Emoji-pipe';
     FilterComponent,
     BooleanEmojiPipe,
     GenericFilterComponent,
+    LoadingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, MaterialUIModule, HttpClientModule],
   exports: [MaterialUIModule],

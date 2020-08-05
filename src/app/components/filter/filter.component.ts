@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x-data.service';
 import { GenericFilter } from './../../models/Genericfilters';
 
 @Component({
@@ -9,7 +10,7 @@ import { GenericFilter } from './../../models/Genericfilters';
 export class FilterComponent implements OnInit {
   public yearFilter: GenericFilter = {
     title: 'Launch Year',
-    options: Array.apply(null, { length: 14 })
+    options: Array.apply(null, { length: 15 })
       .map(Number.call, Number)
       .map((j) => j + 2006),
   };
@@ -18,11 +19,16 @@ export class FilterComponent implements OnInit {
     title: 'Successful Launch',
     options: ['True', 'False'],
   };
+
   public successLandFilter: GenericFilter = {
     title: 'Successful Land',
     options: ['True', 'False'],
   };
-  constructor() {}
 
+  constructor(public svc: SpaceXDataService) {}
+
+  public applyFilter($data) {
+    this.svc.loadFilter({ launch_year: $data });
+  }
   ngOnInit(): void {}
 }

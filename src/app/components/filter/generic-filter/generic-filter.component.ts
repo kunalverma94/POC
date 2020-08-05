@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GenericFilter } from 'src/app/models/Genericfilters';
 
 @Component({
@@ -9,9 +9,20 @@ import { GenericFilter } from 'src/app/models/Genericfilters';
 export class GenericFilterComponent implements OnInit {
   @Input()
   public data: GenericFilter;
-  constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.data);
+  @Output()
+  public selectEvent = new EventEmitter();
+
+  public activeOption;
+  constructor() {}
+  public activate(option) {
+    if (this.activeOption === option) {
+      this.activeOption = undefined;
+    } else {
+      this.activeOption = option;
+    }
+
+    this.selectEvent.emit(this.activeOption);
   }
+  ngOnInit(): void {}
 }

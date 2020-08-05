@@ -1,0 +1,21 @@
+@import '../../item/item.component.scss';
+
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading {
+  animation: loading 0.5s linear infinite;
+}
+
+.line-width {
+  width: 250px;
+}
