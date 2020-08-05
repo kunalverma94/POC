@@ -1,0 +1,29 @@
+.gf-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.generic-filter {
+  max-width: 240px;
+}
+
+.gf-title-border {
+  padding: 0.5rem;
+  border-bottom: solid 1px darkgrey;
+}
+
+.options-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.options.active {
+  background: #7cba01 !important;
+}
+.options {
+  padding: 0.3rem;
+  background: #7cba017a;
+  margin: 2px 20px;
+  border-radius: 5px;
+}

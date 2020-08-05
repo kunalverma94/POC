@@ -1,0 +1,10 @@
+// @import '../../style-variables/measures.scss';
+// .card {
+//   max-width: $card-width;
+// }
+.filter-context {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

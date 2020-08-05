@@ -1,20 +1,33 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from './components/app/app.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { GenericFilterComponent } from './components/filter/generic-filter/generic-filter.component';
+import { HomeComponent } from './components/home/home.component';
+import { ItemComponent } from './components/item/item.component';
+import { ListComponent } from './components/list/list.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { NavComponent } from './components/shared/nav/nav.component';
+import { MaterialUIModule } from './modules/material-module';
+import { BooleanEmojiPipe } from './pipes/boolean-Emoji-pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    HomeComponent,
+    AppComponent,
+    NavComponent,
+    FooterComponent,
+    ItemComponent,
+    ListComponent,
+    FilterComponent,
+    BooleanEmojiPipe,
+    GenericFilterComponent,
   ],
-  imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
-    BrowserAnimationsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, MaterialUIModule, HttpClientModule],
+  exports: [MaterialUIModule],
+  providers: [HttpClientModule],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

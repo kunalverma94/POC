@@ -1,0 +1,45 @@
+<div class="card">
+  <mat-card>
+    <div class="item-image">
+      <img mat-card-image src="{{ data.links.mission_patch_small }}" height="200" width="200" />
+    </div>
+    <mat-card-content>
+      <div class="misson-name">{{ data.mission_name }} # {{ data.flight_number }}</div>
+
+      <div class="mission-ids">
+        <div class="item-label">Mission Ids</div>
+        <div class="list-missions">
+          <ul *ngIf="data.mission_id && data.mission_id.length > 0; else no_content">
+            <li *ngFor="let mi of data.mission_id">{{ mi }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="details">
+        <div class="item-detail-row">
+          <div class="item-label">Launch Year</div>
+          <div class="item-detail-child">
+            {{ data.launch_year }}
+          </div>
+        </div>
+
+        <div class="item-detail-row">
+          <div class="item-label">Successful Launch</div>
+          <div class="item-detail-child">
+            {{ data.launch_success | booleanEmojiPipe }}
+          </div>
+        </div>
+
+        <div class="item-detail-row">
+          <div class="item-label">Successful Landing</div>
+          <div class="item-detail-child">
+            {{ data.launch_success | booleanEmojiPipe }}
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #no_content>
+  <li>No mission ids.</li>
+</ng-template>

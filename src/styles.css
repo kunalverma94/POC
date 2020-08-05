@@ -1,4 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  --bg: #f2f2f2;
+  --ltc: #454e93;
+}
+
+body {
+  height: 100%;
+  background: whitesmoke;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: 'Roboto', sans-serif;
+}
+ul {
+  margin: 0;
+}
+
+@media screen and (min-width: 700px) {
+  body {
+    background: red;
+    color: white;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    background: blue;
+    color: white;
+  }
+}
+@media screen and (min-width: 1440px) {
+  body {
+    background: yellow;
+    color: white;
+  }
+}

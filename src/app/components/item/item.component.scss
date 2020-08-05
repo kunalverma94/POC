@@ -1,0 +1,38 @@
+@import '../../style-variables/measures.scss';
+// .card {
+//   max-width: $card-width;
+// }
+
+.item-image {
+  padding: 1rem;
+  background: var(--bg);
+  border-radius: $item-border;
+}
+.list-missions {
+  color: var(--ltc) !important;
+}
+.item-detail-row {
+  display: flex;
+  margin: $item-margin;
+  justify-content: space-between;
+}
+
+.misson-name {
+  padding: $title-padding;
+  font-weight: $fbold;
+  color: var(--ltc) !important;
+}
+
+.item-label {
+  font-weight: $fbold;
+  max-width: $lab-width;
+}
+
+.item-label:after {
+  content: ':';
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
