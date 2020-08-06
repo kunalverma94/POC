@@ -6,6 +6,8 @@
 
 - Deployed stg Env : [http://poc9.herokuapp.com](http://poc9.herokuapp.com/)
 - Code: [https://github.com/kunalverma94/POC](https://github.com/kunalverma94/POC)
+- Video: [https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/32ewd.mp4](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/32ewd.mp4)
+- Document: [https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/XT Coding Assignment.docx](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/XT Coding Assignment.docx)
 
 ## Requirements
 
