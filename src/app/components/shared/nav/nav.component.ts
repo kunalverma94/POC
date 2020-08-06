@@ -8,13 +8,13 @@ import { environment } from 'src/environments/environment';
 })
 export class NavComponent {
   public title = environment.title;
-  public nigth = false;
+  public nightMode = false;
 
   public switchMode() {
-    this.nigth = !this.nigth;
-    const mode = this.nigth ? 'night' : 'day';
-    Object.keys(environment.themes[mode]).forEach((c) =>
-      document.documentElement.style.setProperty(c, environment.themes[mode][c])
+    this.nightMode = !this.nightMode;
+    const mode = this.nightMode ? 'night' : 'day';
+    Object.keys(environment.appsettings.THEMES[mode]).forEach((c) =>
+      document.documentElement.style.setProperty(c, environment.appsettings.THEMES[mode][c])
     );
   }
 }

@@ -7,5 +7,5 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent {
-  public name: string = environment.Develoer;
+  public name: string = environment.Developer;
 }

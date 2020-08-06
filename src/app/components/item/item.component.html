@@ -1,6 +1,11 @@
 <div class="grid-item">
   <div class="image">
-    <img width="75%" [lazyLoad]="data?.links?.mission_patch_small" alt="{{ data?.mission_name }}" />
+    <img
+      width="75%"
+      [lazyLoad]="data?.links?.mission_patch_small"
+      src="./assets/loading.gif"
+      alt="{{ data?.mission_name }}"
+    />
   </div>
   <div class="card-content">
     <div class="card-title blue-label bold">{{ data?.mission_name }} # {{ data?.flight_number }}</div>

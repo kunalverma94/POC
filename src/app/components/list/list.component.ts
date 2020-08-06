@@ -11,27 +11,26 @@ import { SpaceXDataService } from './../../services/space-x-data-service/space-x
 export class ListComponent implements OnInit {
   public list: SpaceShuttle[];
   public column: number;
+  public message = 'No Match found..';
   public loading = true;
 
   constructor(private svc: SpaceXDataService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(
-      (params) => {
-        this.loading = true;
-        if (Object.keys(params).length === 0 && window?.location?.search != '') {
-          return;
-        } else {
-          this.svc.getSpaceData().subscribe((x) => {
-            this.list = x;
-            this.loading = false;
-          });
-        }
-      },
-      (error) => {
-        this.loading = false;
-        console.log('logging...error');
+    this.loadList();
+  }
+
+  private loadList() {
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.loading = true;
+      if (Object.keys(params).length === 0 && window?.location?.search != '') {
+        return;
+      } else {
+        this.svc.getSpaceData().subscribe((x) => {
+          this.list = x;
+          this.loading = false;
+        });
       }
-    );
+    });
   }
 }

@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
 import { SpaceShuttle } from 'src/app/models/SpaceShuttle';
 import { BooleanEmojiPipe } from 'src/app/pipes/boolean-Emoji-pipe';
 import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x-data.service';
@@ -41,6 +42,8 @@ describe('HomeComponent', () => {
       providers: [SpaceXDataService],
     }).compileComponents();
     fixture = TestBed.createComponent(HomeComponent);
+    const datasvc = TestBed.inject(SpaceXDataService);
+    spyOn(datasvc, 'getSpaceData').and.returnValue(of(fakedata));
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

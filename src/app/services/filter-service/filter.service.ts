@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class FilterService {
-  public currentFilters: DataFilters = { limit: environment.appsettings.limit };
+  public currentFilters: DataFilters = { limit: environment.appsettings.LIMIT };
 
   public yearFilter: GenericFilter = {
     title: 'Launch Year',
