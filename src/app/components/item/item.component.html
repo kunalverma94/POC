@@ -12,8 +12,10 @@
     <div class="mission-ids">
       <div class="item-label bold">Mission Ids</div>
       <div class="list-missions blue-label">
-        <ul *ngIf="data?.mission_id && data?.mission_id.length > 0; else no_content">
-          <li *ngFor="let mi of data.mission_id">{{ mi }}</li>
+        <ul>
+          <ng-container *ngIf="data?.mission_id && data?.mission_id.length > 0; else no_content">
+            <li *ngFor="let mi of data.mission_id">{{ mi }}</li>
+          </ng-container>
         </ul>
       </div>
     </div>
