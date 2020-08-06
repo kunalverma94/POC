@@ -7,5 +7,6 @@ export interface SpaceShuttle {
   launch_year: string;
   launch_success: boolean;
   land_success: boolean;
+  rocket: any;
   links: Links;
 }

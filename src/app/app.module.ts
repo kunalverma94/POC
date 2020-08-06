@@ -1,6 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x-data.service';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
 import { FilterComponent } from './components/filter/filter.component';
@@ -9,10 +12,11 @@ import { HomeComponent } from './components/home/home.component';
 import { ItemComponent } from './components/item/item.component';
 import { ListComponent } from './components/list/list.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 import { NavComponent } from './components/shared/nav/nav.component';
 import { MaterialUIModule } from './modules/material-module';
 import { BooleanEmojiPipe } from './pipes/boolean-Emoji-pipe';
-import { LoadingComponent } from './components/shared/loading/loading.component';
+import { FilterService } from './services/filter-service/filter.service';
 
 @NgModule({
   declarations: [
@@ -27,9 +31,15 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
     GenericFilterComponent,
     LoadingComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MaterialUIModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MaterialUIModule,
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+  ],
   exports: [MaterialUIModule],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule, FilterService, SpaceXDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

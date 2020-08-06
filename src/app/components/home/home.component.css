@@ -1,13 +1,23 @@
-.container {
-  display: flex;
-  flex-direction: column;
+.gc-container {
+  display: grid;
+  grid-template-areas:
+    'filter filter filter'
+    'list list list';
+  grid-gap: 10px;
+  padding: 10px;
   justify-content: center;
-  align-items: center;
+}
+.gc-filter {
+  grid-area: filter;
+}
+
+.gc-list {
+  grid-area: list;
 }
 
 @media screen and (min-width: 700px) {
-  .container {
-    align-items: unset;
-    flex-direction: row;
+  .gc-container {
+    grid-template-areas: 'filter list list';
+    justify-content: start;
   }
 }

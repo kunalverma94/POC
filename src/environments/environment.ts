@@ -4,12 +4,13 @@
 
 export const environment = {
   production: false,
+  Develoer: 'Kunal Verma POC',
   title: 'SpaceX Launch Programs',
   API: {
     spaceXData: 'https://api.spaceXdata.com/v3/launches?',
   },
   appsettings: {
-    limit: 100,
+    limit: 10,
   },
 };
 

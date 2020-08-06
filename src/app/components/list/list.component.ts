@@ -1,4 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { SpaceShuttle } from 'src/app/models/SpaceShuttle';
 import { SpaceXDataService } from './../../services/space-x-data-service/space-x-data.service';
 
 @Component({
@@ -6,14 +8,20 @@ import { SpaceXDataService } from './../../services/space-x-data-service/space-x
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
 })
-export class ListComponent implements OnInit, OnDestroy {
-  public list: any[];
-
+export class ListComponent implements OnInit {
+  public list: SpaceShuttle[];
   public column: number;
-  constructor(private svc: SpaceXDataService) {}
-  ngOnDestroy(): void {}
+  public loading: boolean;
+
+  constructor(private svc: SpaceXDataService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.svc.spaceData.subscribe((x) => (this.list = x));
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.loading = true;
+      this.svc.getSpaceData().subscribe((x) => {
+        this.list = x;
+        this.loading = false;
+      });
+    });
   }
 }

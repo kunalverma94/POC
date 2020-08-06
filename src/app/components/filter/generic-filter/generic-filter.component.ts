@@ -21,8 +21,9 @@ export class GenericFilterComponent implements OnInit {
     } else {
       this.activeOption = option;
     }
-
-    this.selectEvent.emit(this.activeOption);
+    const g = {};
+    g[this.data.key] = this.activeOption?.toString().toLowerCase();
+    this.selectEvent.emit(g);
   }
   ngOnInit(): void {}
 }
