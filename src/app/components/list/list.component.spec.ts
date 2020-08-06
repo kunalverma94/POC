@@ -1,5 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { ItemComponent } from '../item/item.component';
+import { LoadingComponent } from './../shared/loading/loading.component';
 import { ListComponent } from './list.component';
 
 describe('ListComponent', () => {
@@ -8,9 +11,10 @@ describe('ListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListComponent ]
-    })
-    .compileComponents();
+      declarations: [ListComponent, LoadingComponent, ItemComponent],
+      providers: [],
+      imports: [HttpClientModule, RouterTestingModule.withRoutes([])],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x-data.service';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +18,6 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
 import { NavComponent } from './components/shared/nav/nav.component';
 import { BooleanEmojiPipe } from './pipes/boolean-Emoji-pipe';
 import { FilterService } from './services/filter-service/filter.service';
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -33,6 +33,7 @@ import { FilterService } from './services/filter-service/filter.service';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'POC' }),
+    LazyLoadImageModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators/';
+import { catchError, map } from 'rxjs/operators/';
 import { SpaceShuttle } from 'src/app/models/SpaceShuttle';
 import { environment } from 'src/environments/environment';
 import { FilterService } from '../filter-service/filter.service';
@@ -22,7 +22,11 @@ export class SpaceXDataService {
           ox.land_success = ox.rocket.first_stage?.cores[0].land_success;
           return ox;
         })
-      )
+      ),
+      catchError((err, cactch) => {
+        console.log(err);
+        return [];
+      })
     );
   }
 }

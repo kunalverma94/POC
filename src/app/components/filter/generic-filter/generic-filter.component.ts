@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GenericFilter } from 'src/app/models/Genericfilters';
 
 @Component({
@@ -6,7 +6,7 @@ import { GenericFilter } from 'src/app/models/Genericfilters';
   templateUrl: './generic-filter.component.html',
   styleUrls: ['./generic-filter.component.scss'],
 })
-export class GenericFilterComponent implements OnInit {
+export class GenericFilterComponent {
   @Input()
   public data: GenericFilter;
 
@@ -14,8 +14,6 @@ export class GenericFilterComponent implements OnInit {
   public selectEvent = new EventEmitter();
 
   public activeOption = this.data?.default;
-
-  constructor() {}
 
   public activate(option) {
     if (this.activeOption === option) {
@@ -27,5 +25,4 @@ export class GenericFilterComponent implements OnInit {
     g[this.data.key] = this.activeOption;
     this.selectEvent.emit(g);
   }
-  ngOnInit(): void {}
 }
