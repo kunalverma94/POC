@@ -1,8 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
-
 :root {
   --bg: #f2f2f2;
+  --bg2: #fff;
   --ltc: #454e93;
+  --tcc: black;
 }
 
 body {
@@ -11,7 +11,10 @@ body {
   background: var(--bg);
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
+  color: var(--tcc);
+  transition: background, color 0.5s;
 }
+
 ul {
   margin: 0;
 }

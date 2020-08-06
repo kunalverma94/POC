@@ -1,9 +1,11 @@
-// Background colors
-
-$sky-color-white: #ffffff !default;
-$sky-color-black: #000000 !default;
-$sky-color-bgg: #f2f2f2 !default;
+$white: #ffffff !default;
+$black: #000000 !default;
+$backcolor: #f2f2f2 !default;
 
 // Text colors
+$highlight: #454e93 !default;
 
-$sky-color-ltc: #454e93 !default;
+//border
+$border-color: darkgrey;
+$filter-color: #7cba017a;
+$filter--active-color: #7cba01;

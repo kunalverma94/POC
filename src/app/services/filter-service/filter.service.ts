@@ -32,23 +32,28 @@ export class FilterService {
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe((params) => {
-      console.log(params);
+      this.yearFilter.default = params.launch_year;
+      this.successLaunchFilter.default = params.launch_success;
+      this.successLandFilter.default = params.land_success;
+      this.currentFilters = { ...this.currentFilters, ...params };
     });
   }
 
   public filterURLBuilder(): string {
     const urlBuilder = [];
+    console.log(this.currentFilters);
     Object.keys(this.currentFilters).forEach((p) => {
       if (this.currentFilters[p] !== undefined) {
         urlBuilder.push(`${p}=${this.currentFilters[p]}`);
       }
     });
-    return urlBuilder.join('&');
+    return urlBuilder.join('&').toLowerCase();
   }
 
   public setFilters(dataFilters: DataFilters) {
     if (dataFilters) {
       this.currentFilters = { ...this.currentFilters, ...dataFilters };
+      console.log(this.currentFilters);
       this.router.navigate(['home'], {
         queryParams: this.currentFilters,
       });

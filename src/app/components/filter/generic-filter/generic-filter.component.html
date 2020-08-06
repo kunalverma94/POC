@@ -4,7 +4,7 @@
   </div>
   <div class="options-list">
     <div class="options-button" *ngFor="let option of data?.options">
-      <div class="options" [class.active]="option == activeOption" (click)="activate(option)">{{ option }}</div>
+      <div class="options" [class.active]="option == data.default" (click)="activate(option)">{{ option }}</div>
     </div>
   </div>
 </div>

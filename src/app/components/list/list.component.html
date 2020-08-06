@@ -1,7 +1,6 @@
 <div class="grid-container" *ngIf="list && list.length > 0 && !loading; else loading_items">
   <app-item *ngFor="let item of list" [data]="item"></app-item>
 </div>
-
 <ng-template #loading_items>
   <app-loading *ngIf="loading; else empty_template"></app-loading>
 </ng-template>

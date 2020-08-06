@@ -1,3 +1,6 @@
 <div class="app-title">
   <h3>{{ title }}</h3>
+  <div (click)="switchMode()" style="cursor: pointer; font-size: 20px;">
+    Day/Nidht Mode {{ this.nigth ? '🌑' : '🌞' }}
+  </div>
 </div>

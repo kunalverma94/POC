@@ -1,7 +1,5 @@
-// @import '../../style-variables/measures.scss';
-// .card {
-//   max-width: $card-width;
-// }
+@import '../../style-variables/style-variables.scss';
+
 .filter-context {
   display: flex;
   flex-direction: column;
@@ -9,8 +7,9 @@
   align-items: center;
 }
 .filters {
-  min-width: 200px;
-  max-width: 340px;
-  width: 340px;
-  padding: 1rem;
+  min-width: $filter-min;
+  max-width: $filter-max;
+  padding: $filter-padding;
+  background: var(--bg2);
+  margin: $filter-margin;
 }

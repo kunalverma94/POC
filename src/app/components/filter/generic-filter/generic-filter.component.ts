@@ -13,8 +13,10 @@ export class GenericFilterComponent implements OnInit {
   @Output()
   public selectEvent = new EventEmitter();
 
-  public activeOption;
+  public activeOption = this.data?.default;
+
   constructor() {}
+
   public activate(option) {
     if (this.activeOption === option) {
       this.activeOption = undefined;
@@ -22,7 +24,7 @@ export class GenericFilterComponent implements OnInit {
       this.activeOption = option;
     }
     const g = {};
-    g[this.data.key] = this.activeOption?.toString().toLowerCase();
+    g[this.data.key] = this.activeOption;
     this.selectEvent.emit(g);
   }
   ngOnInit(): void {}

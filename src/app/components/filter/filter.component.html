@@ -1,20 +1,8 @@
 <div class="filters">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title class="bold">Filters</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="filter-context">
-        <app-generic-filter [data]="fsvc.yearFilter" (selectEvent)="fsvc.setFilters($event)"></app-generic-filter>
-        <app-generic-filter
-          [data]="fsvc.successLaunchFilter"
-          (selectEvent)="fsvc.setFilters($event)"
-        ></app-generic-filter>
-        <app-generic-filter
-          [data]="fsvc.successLandFilter"
-          (selectEvent)="fsvc.setFilters($event)"
-        ></app-generic-filter>
-      </div>
-    </mat-card-content>
-  </mat-card>
+  <div class="bold">Filters</div>
+  <div class="filter-context">
+    <app-generic-filter [data]="fsvc.yearFilter" (selectEvent)="fsvc.setFilters($event)"></app-generic-filter>
+    <app-generic-filter [data]="fsvc.successLaunchFilter" (selectEvent)="fsvc.setFilters($event)"></app-generic-filter>
+    <app-generic-filter [data]="fsvc.successLandFilter" (selectEvent)="fsvc.setFilters($event)"></app-generic-filter>
+  </div>
 </div>

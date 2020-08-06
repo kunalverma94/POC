@@ -19,9 +19,7 @@ export class SpaceXDataService {
     return this.http.get<SpaceShuttle[]>(`${this._serviceURL}${this.fsvc.filterURLBuilder()}`).pipe(
       map((o) =>
         o.map((ox) => {
-          let landingData = ox.rocket;
           ox.land_success = ox.rocket.first_stage?.cores[0].land_success;
-
           return ox;
         })
       )

@@ -1,17 +1,11 @@
-<div class="loading" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
-  <div *ngFor="let i of loopArray" style="margin: 3px;">
-    <div class="grid-item">
-      <div class="image loading" style="width: 250px; height: 250px;"></div>
-      <br />
-      <div class="card-content loading">
-        <div class="image loading" style="width: 250px; height: 5px;"></div>
-        <br />
-
-        <div class="image loading" style="width: 150px; height: 2px;"></div>
-        <br />
-
-        <div class="image loading" style="width: 250px; height: 4px;"></div>
-      </div>
+<div class="loading-block">
+  <div *ngFor="let i of loopArray" style="margin: 10px; padding: 1rem;">
+    <div class="image loading" style="width: 250px; height: 250px;"></div>
+    <br />
+    <div class="x">
+      <div class="loading-sub loading" style="width: 250px; height: 15px;"></div>
+      <div class="loading-sub loading" style="width: 150px; height: 5px;"></div>
+      <div class="loading-sub loading" style="width: 250px; height: 14px;"></div>
     </div>
   </div>
 </div>

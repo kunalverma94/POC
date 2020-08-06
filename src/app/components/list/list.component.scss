@@ -1,18 +1,20 @@
+@import '../../style-variables/style-variables.scss';
+
 .grid-container {
   display: grid;
   grid-template-columns: auto;
-  grid-gap: 10px;
-  padding: 10px;
+  grid-gap: $generic-margin;
+  padding: $generic-margin;
   justify-content: center;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: $sky-size-screen-mobile) {
   .grid-container {
     grid-template-columns: auto auto;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $sky-size-screen-desktop) {
   .grid-container {
     grid-template-columns: auto auto auto auto;
   }

@@ -14,7 +14,6 @@ import { ListComponent } from './components/list/list.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { NavComponent } from './components/shared/nav/nav.component';
-import { MaterialUIModule } from './modules/material-module';
 import { BooleanEmojiPipe } from './pipes/boolean-Emoji-pipe';
 import { FilterService } from './services/filter-service/filter.service';
 
@@ -34,11 +33,9 @@ import { FilterService } from './services/filter-service/filter.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MaterialUIModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  exports: [MaterialUIModule],
   providers: [HttpClientModule, FilterService, SpaceXDataService],
   bootstrap: [AppComponent],
 })

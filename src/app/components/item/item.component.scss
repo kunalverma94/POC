@@ -1,24 +1,27 @@
-@import '../../style-variables/measures.scss';
+@import '../../style-variables/style-variables.scss';
 .grid-item {
   display: flex;
   flex-direction: column;
-  background: white;
-  padding: 1rem;
-  max-width: 350px;
+  background: var(--bg2);
+  padding: $default-padding;
+  max-width: $item-max;
+  border-radius: $option-radii;
 }
 
 .image {
   background: var(--bg);
   text-align: center;
-  padding: 1rem;
+  padding: $one-padding;
+  min-width: $filter-min;
+  min-height: $filter-min;
 }
 
 .item-detail-row {
   display: flex;
   justify-content: space-between;
-  margin: 4.5px;
+  margin: $option-radii;
 }
 
 .card-title {
-  padding: 0.5rem;
+  padding: $filter-padding;
 }

@@ -1,15 +1,17 @@
+@import '../../../style-variables/style-variables.scss';
+
 .gf-title {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: $generic-margin;
 }
 .generic-filter {
-  max-width: 240px;
+  max-width: $generic-width-max;
 }
 
 .gf-title-border {
   padding: 0.5rem;
-  border-bottom: solid 1px darkgrey;
+  border-bottom: solid $generic-border-small $border-color;
 }
 
 .options-list {
@@ -19,12 +21,12 @@
 }
 
 .options.active {
-  background: #7cba01 !important;
+  background: $filter--active-color !important;
 }
 .options {
-  padding: 0.3rem 10px;
-  background: #7cba017a;
-  margin: 2px 20px;
-  border-radius: 5px;
+  padding: $option-padding;
+  background: $filter-color;
+  margin: $option-margin;
+  border-radius: $option-radii;
   cursor: pointer;
 }
