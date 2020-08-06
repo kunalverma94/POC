@@ -18,7 +18,7 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
       this.loading = true;
-      if (Object.keys(params).length === 0 && window.location.search != '') {
+      if (Object.keys(params).length === 0 && window?.location?.search != '') {
         return;
       } else {
         this.svc.getSpaceData().subscribe((x) => {

@@ -41,7 +41,6 @@ export class FilterService {
 
   public filterURLBuilder(): string {
     const urlBuilder = [];
-    console.log(this.currentFilters);
     Object.keys(this.currentFilters).forEach((p) => {
       if (this.currentFilters[p] !== undefined) {
         urlBuilder.push(`${p}=${this.currentFilters[p]}`);
@@ -53,7 +52,6 @@ export class FilterService {
   public setFilters(dataFilters: DataFilters) {
     if (dataFilters) {
       this.currentFilters = { ...this.currentFilters, ...dataFilters };
-      console.log(this.currentFilters);
       this.router.navigate(['home'], {
         queryParams: this.currentFilters,
       });

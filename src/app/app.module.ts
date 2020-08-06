@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x-data.service';
 import { environment } from '../environments/environment';
@@ -31,9 +32,10 @@ import { FilterService } from './services/filter-service/filter.service';
     LoadingComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'POC' }),
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [HttpClientModule, FilterService, SpaceXDataService],

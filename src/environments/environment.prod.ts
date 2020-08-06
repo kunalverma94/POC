@@ -6,7 +6,7 @@ export const environment = {
     spaceXData: 'https://api.spaceXdata.com/v3/launches?',
   },
   appsettings: {
-    limit: 10,
+    limit: 100,
   },
   themes: {
     night: {
