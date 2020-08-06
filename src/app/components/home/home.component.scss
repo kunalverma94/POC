@@ -18,7 +18,7 @@
   grid-area: list;
 }
 
-@media screen and (min-width: $sky-size-screen-mobile) {
+@media screen and (min-width: $sky-size-screen-tablet) {
   .gc-container {
     grid-template-areas: 'filter list list';
     justify-content: start;

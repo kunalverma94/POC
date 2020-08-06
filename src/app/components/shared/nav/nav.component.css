@@ -1,3 +1,6 @@
 .app-title {
   font-size: large;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
