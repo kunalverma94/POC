@@ -20,19 +20,20 @@ export class BaseServiceService {
   protected retryStratergy(err: Observable<any>): Observable<any> {
     if (environment.production) {
       return err.pipe(retry(5));
+    } else {
+      return err.pipe(
+        scan((retryCount) => {
+          retryCount += 1;
+          if (retryCount < 6) {
+            console.log('Retrying #', retryCount);
+            return retryCount;
+          } else {
+            throw new Error('faile to get data');
+          }
+        }, 0),
+        delay(2000)
+      );
     }
-    return err.pipe(
-      scan((retryCount) => {
-        retryCount += 1;
-        if (retryCount < 6) {
-          console.log('Retrying #', retryCount);
-          return retryCount;
-        } else {
-          throw new Error('faile to get data');
-        }
-      }, 0),
-      delay(2000)
-    );
   }
 
   protected logError(err: any) {
