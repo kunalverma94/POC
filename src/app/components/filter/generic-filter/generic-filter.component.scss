@@ -5,6 +5,7 @@
   justify-content: center;
   margin-bottom: $generic-margin;
 }
+
 .generic-filter {
   max-width: $generic-width-max;
 }
@@ -23,6 +24,7 @@
 .options.active {
   background: $filter--active-color !important;
 }
+
 .options {
   padding: $option-padding;
   background: $filter-color;

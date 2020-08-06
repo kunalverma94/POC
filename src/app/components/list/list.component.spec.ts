@@ -15,13 +15,10 @@ describe('ListComponent', () => {
       providers: [],
       imports: [HttpClientModule, RouterTestingModule.withRoutes([])],
     }).compileComponents();
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();

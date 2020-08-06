@@ -8,5 +8,4 @@ import { environment } from 'src/environments/environment';
 })
 export class FooterComponent {
   public name: string = environment.Develoer;
-  constructor() {}
 }

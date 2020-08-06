@@ -4,6 +4,5 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class BooleanEmojiPipe implements PipeTransform {
   transform(value: boolean): any {
     return value ? '✔️' : '❌';
-    // return value ? 'Yes' : 'No';
   }
 }

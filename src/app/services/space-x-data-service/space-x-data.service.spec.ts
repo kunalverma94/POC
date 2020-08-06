@@ -18,6 +18,7 @@ describe('SpaceXDataService', () => {
     mission_name: '',
     rocket: undefined,
   };
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule, RouterTestingModule.withRoutes([])],

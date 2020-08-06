@@ -21,8 +21,6 @@ export class GenericFilterComponent {
     } else {
       this.activeOption = option;
     }
-    const g = {};
-    g[this.data.key] = this.activeOption;
-    this.selectEvent.emit(g);
+    this.selectEvent.emit({ [this.data.key]: this.activeOption });
   }
 }

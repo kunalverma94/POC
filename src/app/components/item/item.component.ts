@@ -9,5 +9,4 @@ import { SpaceShuttle } from 'src/app/models/SpaceShuttle';
 export class ItemComponent {
   @Input()
   public data: SpaceShuttle;
-  constructor() {}
 }

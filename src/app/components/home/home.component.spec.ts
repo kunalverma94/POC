@@ -25,6 +25,7 @@ describe('HomeComponent', () => {
       rocket: undefined,
     },
   ];
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
