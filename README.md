@@ -1,3 +1,45 @@
+#Angular Stack
+
+
+	-UI
+		-Custom Reusable Components
+		-Generic component for Filter.
+		-List Items
+		-Lazy loading images to improve page load performance
+		-Day/Night Mode
+		-Organized project structure
+    -Custom Pipe for boolean representation
+		-Was going for pagination / lazy loading on scroll but 
+		not sure,If it defeats the purpose of assignment to render large amount of data?
+		
+	-Style
+		-Responsive App All manages in SCSS Breakpoint
+		-Managed most of style using variable for maintainability Scss variables :colors ,measurements , variables
+		-Custom Loading animation
+		-CSS Grid Layout/Flex  Used for maintaing reponsiveness
+		
+	-PWA
+		-Service Worker for caching request/Resources
+		-BaseService Implementation with Retry Stratergy 5 time with interval of 5s 
+		
+	-Deployment
+		-Continuous build pipeline on Heroku into staging
+		-http://poc9.herokuapp.com/
+		-https://github.com/kunalverma94/POC
+
+	-SSR
+		-Angular Universal for SSR
+
+	-TO-DO- Limited By Time 
+		-Implementation much more efficient Service Worker
+		- Refactoring
+		- Added testcases 
+		- Modularizing
+		- Notifications /User Friendly Error messages
+
+
+
+
 # POC
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
