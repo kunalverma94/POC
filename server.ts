@@ -28,9 +28,22 @@ export function app() {
 
   server.set('view engine', 'html');
   server.set('views', distFolder);
+  const http = require('https');
 
   // Example Express Rest API endpoints
-  // app.get('/api/**', (req, res) => { });
+  server.get('/api/**', (req, res) => {
+    console.log('serving api...');
+
+    http.get(`https://api.spacexdata.com/v3/launches?${req.url.replace('/api/', '')}`, (ress) => {
+      let data = '';
+      ress.on('data', (x) => {
+        data += x;
+      });
+      ress.on('end', () => {
+        res.json(JSON.parse(data));
+      });
+    });
+  });
   // Serve static files from /browser
   server.get(
     '*.*',
