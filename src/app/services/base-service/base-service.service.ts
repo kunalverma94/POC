@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { delay, retry, scan } from 'rxjs/operators';
+import { delay, scan } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class BaseServiceService {
 
   protected retryStratergy(err: Observable<any>): Observable<any> {
     if (environment.production) {
-      return err.pipe(retry(5));
+      return err.pipe();
     } else {
       return err.pipe(
         scan((retryCount) => {
