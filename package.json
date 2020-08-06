@@ -2,9 +2,9 @@
   "name": "poc",
   "version": "0.0.0",
   "scripts": {
-    "ng": "node dist/POC/server/main",
-    "start": "ng serve",
-    "build": "ng build",
+    "ng": "ng",
+    "start": "node dist/POC/server/main",
+    "build": "ng build --prod && ng run POC:server:production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
