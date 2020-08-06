@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, map, retryWhen } from 'rxjs/operators/';
+import { catchError, map } from 'rxjs/operators/';
 import { SpaceShuttle } from 'src/app/models/SpaceShuttle';
 import { FilterService } from '../filter-service/filter.service';
 import { BaseServiceService } from './../base-service/base-service.service';
@@ -22,7 +22,6 @@ export class SpaceXDataService extends BaseServiceService {
           return ox;
         })
       ),
-      retryWhen(this.retryStratergy),
       catchError((err) => {
         this.logError(err);
         return of(undefined);
