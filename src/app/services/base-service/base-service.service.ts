@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { delay, scan } from 'rxjs/operators';
+import { delay, retry, scan } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,8 +17,11 @@ export class BaseServiceService {
     return this.http.get<T>(`${this._serviceURL}${url}`);
   }
 
-  protected retryStratergy = (err: Observable<any>): Observable<any> =>
-    err.pipe(
+  protected retryStratergy(err: Observable<any>): Observable<any> {
+    if (environment.production) {
+      return err.pipe(retry(5));
+    }
+    return err.pipe(
       scan((retryCount) => {
         retryCount += 1;
         if (retryCount < 6) {
@@ -30,6 +33,7 @@ export class BaseServiceService {
       }, 0),
       delay(2000)
     );
+  }
 
   protected logError(err: any) {
     console.log(new Date(), 'logging error....', err);
