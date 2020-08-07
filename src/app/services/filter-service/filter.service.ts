@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataFilters } from 'src/app/models/data-filters';
 import { GenericFilter } from 'src/app/models/Genericfilters';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FilterService {
-  public currentFilters: DataFilters = { limit: environment.appsettings.LIMIT };
+  public currentFilters: DataFilters = {};
 
   public yearFilter: GenericFilter = {
     title: 'Launch Year',
@@ -39,20 +38,10 @@ export class FilterService {
     });
   }
 
-  public filterURLBuilder(): string {
-    const urlBuilder = [];
-    Object.keys(this.currentFilters).forEach((p) => {
-      if (this.currentFilters[p] !== undefined) {
-        urlBuilder.push(`${p}=${this.currentFilters[p]}`);
-      }
-    });
-    return urlBuilder.join('&').toLowerCase();
-  }
-
   public setFilters(dataFilters: DataFilters) {
     if (dataFilters) {
       this.currentFilters = { ...this.currentFilters, ...dataFilters };
-      this.router.navigate(['home'], {
+      this.router.navigate([''], {
         queryParams: this.currentFilters,
       });
     }

@@ -1,36 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input } from '@angular/core';
 import { SpaceShuttle } from 'src/app/models/SpaceShuttle';
-import { SpaceXDataService } from './../../services/space-x-data-service/space-x-data.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
+  @Input()
   public list: SpaceShuttle[];
-  public column: number;
-  public message = 'No Match found..';
-  public loading = true;
 
-  constructor(private svc: SpaceXDataService, private activatedRoute: ActivatedRoute) {}
+  @Input()
+  public filter: number[];
 
-  ngOnInit(): void {
-    this.loadList();
-  }
-
-  private loadList() {
-    this.activatedRoute.queryParams.subscribe((params) => {
-      this.loading = true;
-      if (Object.keys(params).length === 0 && window?.location?.search != '') {
-        return;
-      } else {
-        this.svc.getSpaceData().subscribe((x) => {
-          this.list = x;
-          this.loading = false;
-        });
-      }
-    });
+  public trackByFn(index: number, item: SpaceShuttle) {
+    return item.flight_number;
   }
 }

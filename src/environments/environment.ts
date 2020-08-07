@@ -7,11 +7,10 @@ export const environment = {
   Developer: 'Kunal Verma POC',
   title: 'SpaceX Launch Programs',
   API: {
-    // spaceXData: 'https://api.spaceXdata.com/v3/launches?',
-    spaceXData: '/api/?',
+    spaceXData: 'https://api.spaceXdata.com',
   },
   appsettings: {
-    LIMIT: 100,
+    LIMIT: 10,
     MAX_FAIL_RETRY: 5,
     RETRY_DURATION: 10,
     THEMES: {

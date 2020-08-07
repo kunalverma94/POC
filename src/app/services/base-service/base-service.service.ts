@@ -11,13 +11,14 @@ export class BaseServiceService {
   protected get _serviceURL(): string {
     return environment.API.spaceXData;
   }
+
   constructor(protected http: HttpClient) {}
 
   protected httpGET<T>(url: string): Observable<T> {
     return this.http.get<T>(`${this._serviceURL}${url}`);
   }
 
-  protected retryStratergy(err: Observable<any>): Observable<any> {
+  protected retryStratergy = (err: Observable<any>) => {
     if (environment.production) {
       return err.pipe();
     } else {
@@ -34,7 +35,7 @@ export class BaseServiceService {
         delay(2000)
       );
     }
-  }
+  };
 
   protected logError(err: any) {
     console.log(new Date(), 'logging error....', err);
