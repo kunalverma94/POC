@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { DataFilters } from 'src/app/models/data-filters';
 import { GenericFilter } from 'src/app/models/Genericfilters';
 import { AppFilters } from './predefined-filters';
@@ -8,9 +9,21 @@ import { AppFilters } from './predefined-filters';
   providedIn: 'root',
 })
 export class FilterService {
-  public currentFilters: DataFilters = {};
+  // tslint:disable: variable-name
+  private _currentFilters = new BehaviorSubject<DataFilters>({});
 
+  public get filterMode(): boolean {
+    return window?.location?.search !== '';
+  }
   public filters: GenericFilter[] = AppFilters;
+
+  public static hasFilter(critaria: DataFilters): boolean {
+    return critaria && Object.keys(critaria).length !== 0;
+  }
+
+  public get AppliedFilters(): BehaviorSubject<DataFilters> {
+    return this._currentFilters;
+  }
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.loadDefaultFilters();
@@ -18,9 +31,9 @@ export class FilterService {
 
   public setFilters(dataFilters: DataFilters) {
     if (dataFilters) {
-      this.currentFilters = { ...this.currentFilters, ...dataFilters };
+      const newFilter = { ...this._currentFilters.value, ...dataFilters };
       this.router.navigate(['query'], {
-        queryParams: this.currentFilters,
+        queryParams: newFilter,
       });
     }
   }
@@ -28,15 +41,8 @@ export class FilterService {
   private loadDefaultFilters() {
     this.activatedRoute.queryParams.subscribe((params: DataFilters) => {
       this.filters.forEach((g) => (g.default = params[g.key]));
-      // Object.keys(params).forEach((key) => {
-
-      //   let f = this.filters[this.filters.findIndex((f) => f.key === key)];
-      //   f.default = params[key];
-      // });
-      // yearFilter.default = params.launch_year;
-      // successLaunchFilter.default = params.launch_success;
-      // successLaunchFilter.default = params.land_success;
-      this.currentFilters = { ...this.currentFilters, ...params };
+      console.log(params);
+      this._currentFilters.next(params);
     });
   }
 }

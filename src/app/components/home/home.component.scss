@@ -3,8 +3,8 @@
 .gc-container {
   display: grid;
   grid-template-areas:
-    'filter filter filter'
-    'list list list';
+    'filter'
+    'list';
   grid-gap: $generic-margin;
   padding: $generic-margin;
   justify-content: center;

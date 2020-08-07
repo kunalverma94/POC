@@ -21,7 +21,7 @@
   "dataGroups": [
     {
       "version": 1,
-      "urls": ["/**"],
+      "urls": ["/**", "*.png"],
       "cacheConfig": {
         "maxAge": "3d",
         "maxSize": 99999

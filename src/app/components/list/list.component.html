@@ -1,6 +1,6 @@
 <!-- Data -->
 <!-- <ng-container *ngIf="!loading; else loading_template"> -->
-<app-item *ngFor="let item of xxx | async; trackBy: trackItem" [data]="item"> </app-item>
+<app-item *ngFor="let item of filterViewList | async; trackBy: trackItem" [data]="item"> </app-item>
 <!-- </ng-container> -->
 
 <ng-template #loading_template>

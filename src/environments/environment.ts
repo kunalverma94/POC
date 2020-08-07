@@ -18,7 +18,7 @@ export const environment = {
         '--bg': '#222',
         '--bg2': '#444',
         '--ltc': '#454e93',
-        '--tcc': '#fff',
+        '--tcc': '#9E9E9E',
       },
       day: {
         '--bg': '#f2f2f2',

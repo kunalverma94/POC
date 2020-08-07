@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DataFilters } from 'src/app/models/data-filters';
 import { SpaceShuttle } from 'src/app/models/SpaceShuttle';
+import { FilterService } from 'src/app/services/filter-service/filter.service';
 import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x-data.service';
 
 @Component({
@@ -10,60 +9,30 @@ import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit {
-  public filterViewList: SpaceShuttle[];
-  private data: SpaceShuttle[];
-  private xxx: Observable<any[]>;
+export class ListComponent implements OnInit, AfterViewInit {
+  public filterViewList: Observable<SpaceShuttle[]>;
   public loading = false;
 
-  private readonly filterMode = window?.location?.search !== '';
+  constructor(private dataService: SpaceXDataService, private filterService: FilterService) {}
 
-  constructor(private dataService: SpaceXDataService, private activatedRoute: ActivatedRoute) {}
   ngOnInit(): void {
-    this.xxx = this.dataService.getSpaceData();
-    // this.applyFilter();
+    this.filterViewList = this.dataService.getSpaceData();
   }
 
-  private applyFilter() {
-    this.activatedRoute.queryParams.subscribe((params: DataFilters) => {
-      if (this.filterMode) {
-        this.data = [];
-        if (!this.hasFilter(params)) {
-          return;
+  ngAfterViewInit(): void {
+    this.filterService.AppliedFilters.subscribe((fdd) => {
+      if (this.filterService.filterMode) {
+        if (FilterService.hasFilter(fdd)) {
+          this.filterViewList = this.dataService.getSpaceData(fdd);
         }
-        console.log('Applying filters...', params);
-        this.dataService.getSpaceData(params).subscribe(
-          (filters) => (this.filterViewList = filters),
-          () => {},
-          () => (this.loading = false)
-        );
       } else {
-        this.initilizeData();
-        this.loading = false;
+        console.log('loading all...');
+        this.filterViewList = this.dataService.getSpaceData();
       }
     });
   }
+
   public trackItem(i, item) {
     return item.flight_number;
-  }
-  private initilizeData() {
-    if (!this.data) {
-      this.dataService.getSpaceData().subscribe(
-        (data) => {
-          this.data = data;
-          this.filterViewList = this.data;
-        },
-        (err) => {
-          console.log('Something went Wrong');
-        },
-        () => (this.loading = false)
-      );
-    } else {
-      this.filterViewList = this.data;
-    }
-  }
-
-  private hasFilter(critaria: DataFilters): boolean {
-    return (critaria && Object.keys(critaria).length !== 0) || this.filterMode;
   }
 }
