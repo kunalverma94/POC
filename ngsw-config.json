@@ -11,12 +11,22 @@
     },
     {
       "name": "assets",
-      "installMode": "lazy",
-      "updateMode": "prefetch",
+      "installMode": "prefetch",
+      "updateMode": "lazy",
       "resources": {
         "files": ["/assets/**", "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"]
       }
     }
   ],
-  "dataGroups": [{ "version": 1, "urls": ["/**"] }]
+  "dataGroups": [
+    {
+      "version": 1,
+      "urls": ["/**"],
+      "cacheConfig": {
+        "maxAge": "3d",
+        "maxSize": 99999
+      },
+      "name": "api"
+    }
+  ]
 }

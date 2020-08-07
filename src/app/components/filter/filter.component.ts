@@ -7,7 +7,5 @@ import { FilterService } from 'src/app/services/filter-service/filter.service';
   styleUrls: ['./filter.component.scss'],
 })
 export class FilterComponent {
-  constructor(public fsvc: FilterService) {
-    console.log(fsvc.filters);
-  }
+  constructor(public fsvc: FilterService) {}
 }

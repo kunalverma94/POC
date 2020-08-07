@@ -1,4 +1,8 @@
 <!-- Data -->
-<ng-container *ngFor="let item of list; trackBy: trackByFn">
-  <app-item [data]="item" *ngIf="item.show"> </app-item>
-</ng-container>
+<!-- <ng-container *ngIf="!loading; else loading_template"> -->
+<app-item *ngFor="let item of xxx | async; trackBy: trackItem" [data]="item"> </app-item>
+<!-- </ng-container> -->
+
+<ng-template #loading_template>
+  <img src="./assets/loading.gif" />
+</ng-template>

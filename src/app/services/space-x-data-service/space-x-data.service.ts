@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators/';
+import { DataFilters } from 'src/app/models/data-filters';
 import { SpaceShuttle } from 'src/app/models/SpaceShuttle';
 import { environment } from 'src/environments/environment';
 import { BaseServiceService } from './../base-service/base-service.service';
@@ -18,25 +19,28 @@ export class SpaceXDataService extends BaseServiceService {
     super(http);
   }
 
-  public getSpaceData(critaria: string = ''): Observable<SpaceShuttle[]> {
-    return this.httpGET<SpaceShuttle[]>(`${this.PATH}${critaria.toLowerCase()}`).pipe((x) => this.updateLaunchData(x));
-  }
-
-  // #region Private
-  private updateLaunchData = (ob: Observable<SpaceShuttle[]>) =>
-    ob.pipe(
+  public getSpaceData(critaria: DataFilters = {}): Observable<SpaceShuttle[]> {
+    return this.httpGET<SpaceShuttle[]>(`${this.PATH}${this.getUrlFromCritarion(critaria)}`).pipe(
       map((o) =>
         o.map((ox) => {
           ox.land_success = ox.rocket.first_stage?.cores[0].land_success;
-          ox.show = true;
           return ox;
         })
       )
-      // retryWhen(this.retryStratergy), //TODO WHY NOT WORKING IN ANGULAR UNIVERSE
-      // catchError((err) => {
-      //   this.logError(err);
-      //   return of(undefined);
-      // })
     );
-  // #endregion
+  }
+
+  private getUrlFromCritarion(critaria: DataFilters) {
+    if (this.hasFilter(critaria)) {
+      const urlQue = [];
+      Object.keys(critaria).forEach((v) => urlQue.push(`${v}=${critaria[v]}`));
+      return '&' + urlQue.join('&').toLowerCase();
+    } else {
+      return '';
+    }
+  }
+
+  private hasFilter(critaria: DataFilters): boolean {
+    return critaria && Object.keys(critaria).length !== 0;
+  }
 }
