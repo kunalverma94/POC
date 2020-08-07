@@ -10,14 +10,6 @@
   justify-content: center;
 }
 
-.gc-filter {
-  grid-area: filter;
-}
-
-.gc-list {
-  grid-area: list;
-}
-
 @media screen and (min-width: $sky-size-screen-tablet) {
   .gc-container {
     grid-template-areas: 'filter list list';

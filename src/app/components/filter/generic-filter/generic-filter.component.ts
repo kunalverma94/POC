@@ -16,11 +16,7 @@ export class GenericFilterComponent {
   public activeOption = this.data?.default;
 
   public activate(option) {
-    if (this.activeOption === option) {
-      this.activeOption = undefined;
-    } else {
-      this.activeOption = option;
-    }
+    this.activeOption = this.activeOption === option ? undefined : option;
     this.selectEvent.emit({ [this.data.key]: this.activeOption });
   }
 }

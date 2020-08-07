@@ -6,7 +6,7 @@
   margin-bottom: $generic-margin;
 }
 
-.generic-filter {
+:host {
   max-width: $generic-width-max;
 }
 
@@ -18,7 +18,6 @@
 .options-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
 }
 
 .options.active {

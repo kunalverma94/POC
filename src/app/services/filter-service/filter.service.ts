@@ -18,7 +18,11 @@ export class FilterService {
   public filters: GenericFilter[] = AppFilters;
 
   public static hasFilter(critaria: DataFilters): boolean {
-    return critaria && Object.keys(critaria).length !== 0;
+    return (
+      critaria &&
+      Object.keys(critaria).length !== 0 &&
+      Object.keys(critaria).findIndex((dd) => critaria[dd] != undefined) > -1
+    );
   }
 
   public get AppliedFilters(): BehaviorSubject<DataFilters> {
@@ -32,7 +36,7 @@ export class FilterService {
   public setFilters(dataFilters: DataFilters) {
     if (dataFilters) {
       const newFilter = { ...this._currentFilters.value, ...dataFilters };
-      this.router.navigate(['query'], {
+      this.router.navigate([FilterService.hasFilter(dataFilters) ? 'filter' : 'home'], {
         queryParams: newFilter,
       });
     }

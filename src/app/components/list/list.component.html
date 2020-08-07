@@ -1,8 +1,7 @@
 <!-- Data -->
-<!-- <ng-container *ngIf="!loading; else loading_template"> -->
-<app-item *ngFor="let item of filterViewList | async; trackBy: trackItem" [data]="item"> </app-item>
-<!-- </ng-container> -->
-
-<ng-template #loading_template>
-  <img src="./assets/loading.gif" />
+<ng-template let-items [ngTemplateOutletContext]="{ $implicit: filterViewList | async }" [ngTemplateOutlet]="t" #t>
+  <app-item *ngFor="let values of items; trackBy: trackItem" [data]="values"> </app-item>
+  <img *ngIf="items === null" src="./assets/loading.gif" />
+  <p *ngIf="items?.length === 0">items resolved empty</p>
 </ng-template>
+<!-- Kunal Verma -->

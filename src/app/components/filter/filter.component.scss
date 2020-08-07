@@ -7,9 +7,12 @@
   align-items: center;
 }
 
-.filters {
+:host {
   min-width: $filter-min;
   padding: $filter-padding;
   background: var(--bg2);
   margin: $filter-margin;
+}
+:host {
+  grid-area: filter;
 }

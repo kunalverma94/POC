@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x-data.service';
-import { environment } from '../environments/environment';
+import { environment } from 'src/environments/environment';
 import { AppComponent } from './components/app/app.component';
 import { BaseComponent } from './components/base/base.component';
 import { FilterComponent } from './components/filter/filter.component';
@@ -19,7 +19,6 @@ import { NavComponent } from './components/shared/nav/nav.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found/not-found.component';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { BooleanEmojiPipe } from './pipes/boolean-Emoji-pipe';
-import { FilterPipe } from './pipes/filter-pipe';
 import { FilterService } from './services/filter-service/filter.service';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { FilterService } from './services/filter-service/filter.service';
     BooleanEmojiPipe,
     GenericFilterComponent,
     LoadingComponent,
-    FilterPipe,
     NotFoundComponent,
     BaseComponent,
   ],

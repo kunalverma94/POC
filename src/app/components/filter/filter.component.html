@@ -1,8 +1,6 @@
-<section class="filters">
-  <div class="bold">Filters</div>
-  <div class="filter-context">
-    <ng-container *ngFor="let filter of fsvc.filters">
-      <app-generic-filter [data]="filter" (selectEvent)="fsvc.setFilters($event)"></app-generic-filter>
-    </ng-container>
-  </div>
-</section>
+<div class="bold">Filters</div>
+<div class="filter-context">
+  <ng-container *ngFor="let filter of fsvc.filters">
+    <app-generic-filter [data]="filter" (selectEvent)="fsvc.setFilters($event)"></app-generic-filter>
+  </ng-container>
+</div>

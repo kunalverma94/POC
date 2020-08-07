@@ -1,10 +1,8 @@
-<div class="generic-filter">
-  <div class="gf-title">
-    <div class="gf-title-border">{{ data?.title }}</div>
-  </div>
-  <div class="options-list">
-    <div class="options-button" *ngFor="let option of data?.options">
-      <div class="options" [class.active]="option == data.default" (click)="activate(option)">{{ option }}</div>
-    </div>
+<div class="gf-title">
+  <div class="gf-title-border">{{ data?.title }}</div>
+</div>
+<div class="options-list">
+  <div class="options-button" *ngFor="let option of data?.options">
+    <div class="options" [class.active]="option == data.default" (click)="activate(option)">{{ option }}</div>
   </div>
 </div>
