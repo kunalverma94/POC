@@ -1,6 +1,6 @@
 @import '../../style-variables/style-variables.scss';
 
-.gc-container {
+main {
   display: grid;
   grid-template-areas:
     'filter'
@@ -11,7 +11,7 @@
 }
 
 @media screen and (min-width: $sky-size-screen-tablet) {
-  .gc-container {
+  main {
     grid-template-areas: 'filter list list';
     justify-content: start;
   }

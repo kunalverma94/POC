@@ -36,7 +36,7 @@ export class FilterService {
   public setFilters(dataFilters: DataFilters) {
     if (dataFilters) {
       const newFilter = { ...this._currentFilters.value, ...dataFilters };
-      this.router.navigate([FilterService.hasFilter(dataFilters) ? 'filter' : 'home'], {
+      this.router.navigate([FilterService.hasFilter(dataFilters) ? 'filter' : ''], {
         queryParams: newFilter,
       });
     }

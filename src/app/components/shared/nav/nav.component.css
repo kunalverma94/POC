@@ -1,4 +1,4 @@
-.app-title {
+:host {
   font-size: large;
   display: flex;
   justify-content: space-between;

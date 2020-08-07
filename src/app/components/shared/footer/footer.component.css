@@ -1,4 +1,4 @@
-.footer {
+:host {
   display: flex;
   justify-content: center;
   position: static;
