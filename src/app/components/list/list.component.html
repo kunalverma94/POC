@@ -1,16 +1,4 @@
 <!-- Data -->
-<main class="grid-container">
-  <ng-container *ngIf="list && list.length > 0 && !loading; else loading_items">
-    <app-item *ngFor="let item of list" [data]="item"></app-item>
-  </ng-container>
-</main>
-
-<!-- Loading  -->
-<ng-template #loading_items>
-  <app-loading *ngIf="loading; else empty_template"></app-loading>
-</ng-template>
-
-<!-- Error/Empty -->
-<ng-template #empty_template>
-  {{ message }}
-</ng-template>
+<ng-container *ngFor="let item of list; trackBy: trackByFn">
+  <app-item [data]="item" *ngIf="item.show"> </app-item>
+</ng-container>

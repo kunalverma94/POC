@@ -11,8 +11,7 @@ export class ListComponent {
   public list: SpaceShuttle[];
 
   @Input()
-  public filter: number[];
-
+  public filters: number[];
   public trackByFn(index: number, item: SpaceShuttle) {
     return item.flight_number;
   }

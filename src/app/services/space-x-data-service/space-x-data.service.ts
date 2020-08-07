@@ -18,11 +18,17 @@ export class SpaceXDataService extends BaseServiceService {
     super(http);
   }
 
-  public getSpaceData(): Observable<SpaceShuttle[]> {
-    return this.httpGET<SpaceShuttle[]>(this.PATH).pipe(
+  public getSpaceData(critaria: string = ''): Observable<SpaceShuttle[]> {
+    return this.httpGET<SpaceShuttle[]>(`${this.PATH}${critaria.toLowerCase()}`).pipe((x) => this.updateLaunchData(x));
+  }
+
+  // #region Private
+  private updateLaunchData = (ob: Observable<SpaceShuttle[]>) =>
+    ob.pipe(
       map((o) =>
         o.map((ox) => {
           ox.land_success = ox.rocket.first_stage?.cores[0].land_success;
+          ox.show = true;
           return ox;
         })
       )
@@ -32,9 +38,5 @@ export class SpaceXDataService extends BaseServiceService {
       //   return of(undefined);
       // })
     );
-  }
-
-  public getQueryResult(critaria: string): Observable<number[]> {
-    return this.httpGET<SpaceShuttle[]>(`${this.PATH}${critaria}`).pipe(map((o) => o.map((a) => a.flight_number)));
-  }
+  // #endregion
 }

@@ -1,6 +1,6 @@
 @import '../../style-variables/style-variables.scss';
 
-.grid-container {
+:host {
   display: grid;
   grid-template-columns: auto;
   grid-gap: $generic-margin;
@@ -9,13 +9,13 @@
 }
 
 @media screen and (min-width: $sky-size-screen-mobile) {
-  .grid-container {
+  :host {
     grid-template-columns: auto auto;
   }
 }
 
 @media screen and (min-width: $sky-size-screen-tablet) {
-  .grid-container {
+  :host {
     grid-template-columns: auto auto auto auto;
   }
 }

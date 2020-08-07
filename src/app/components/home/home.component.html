@@ -1,4 +1,10 @@
 <main class="gc-container">
   <app-filter class="gc-filter"></app-filter>
-  <app-list class="gc-list"></app-list>
+  <ng-container *ngIf="!loading; else loading_template">
+    <app-list class="gc-list" [list]="filterViewList"></app-list>
+  </ng-container>
 </main>
+
+<ng-template #loading_template>
+  <img src="./assets/loading.gif" />
+</ng-template>

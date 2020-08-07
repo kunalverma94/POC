@@ -1,9 +1,8 @@
 <section class="filters">
   <div class="bold">Filters</div>
   <div class="filter-context">
-    <!-- TO DO CREATE ARRAY OF FILTERS and loop it -->
-    <app-generic-filter [data]="fsvc.yearFilter" (selectEvent)="fsvc.setFilters($event)"></app-generic-filter>
-    <app-generic-filter [data]="fsvc.successLaunchFilter" (selectEvent)="fsvc.setFilters($event)"></app-generic-filter>
-    <app-generic-filter [data]="fsvc.successLandFilter" (selectEvent)="fsvc.setFilters($event)"></app-generic-filter>
+    <ng-container *ngFor="let filter of fsvc.filters">
+      <app-generic-filter [data]="filter" (selectEvent)="fsvc.setFilters($event)"></app-generic-filter>
+    </ng-container>
   </div>
 </section>

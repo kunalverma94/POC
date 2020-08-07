@@ -17,6 +17,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
 import { NavComponent } from './components/shared/nav/nav.component';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { BooleanEmojiPipe } from './pipes/boolean-Emoji-pipe';
+import { FilterPipe } from './pipes/filter-pipe';
 import { FilterService } from './services/filter-service/filter.service';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { FilterService } from './services/filter-service/filter.service';
     BooleanEmojiPipe,
     GenericFilterComponent,
     LoadingComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'POC' }),

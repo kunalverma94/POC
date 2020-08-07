@@ -1,6 +1,6 @@
 @import '../../style-variables/style-variables.scss';
 
-.grid-item {
+.item-card {
   display: flex;
   flex-direction: column;
   background: var(--bg2);
@@ -11,7 +11,7 @@
   transition: box-shadow 0.5s linear;
 }
 
-.grid-item:hover {
+.item-card:hover {
   box-shadow: 8px 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

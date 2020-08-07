@@ -10,7 +10,7 @@ export const environment = {
     spaceXData: 'https://api.spaceXdata.com',
   },
   appsettings: {
-    LIMIT: 10,
+    LIMIT: 100,
     MAX_FAIL_RETRY: 5,
     RETRY_DURATION: 10,
     THEMES: {
