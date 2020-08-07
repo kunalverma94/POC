@@ -1,5 +1,6 @@
 @import '../../style-variables/style-variables.scss';
 
+//Media Query Mobile First View
 main {
   display: grid;
   grid-template-areas:
@@ -9,7 +10,7 @@ main {
   padding: $generic-margin;
   justify-content: center;
 }
-
+// Media Query Tablet/PC
 @media screen and (min-width: $sky-size-screen-tablet) {
   main {
     grid-template-areas: 'filter list list';

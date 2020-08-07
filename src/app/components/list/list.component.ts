@@ -10,29 +10,35 @@ import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit, AfterViewInit {
+  //#region Properties
   public filterViewList: Observable<SpaceShuttle[]>;
   public loading = false;
+  //#endregion
 
   constructor(private dataService: SpaceXDataService, private filterService: FilterService) {}
 
+  //#region LifeCycle Hooks
   ngOnInit(): void {
     this.filterViewList = this.dataService.getSpaceData();
   }
 
   ngAfterViewInit(): void {
     this.filterService.AppliedFilters.subscribe((fdd) => {
+      // Filter Mode and Filter Applied
       if (this.filterService.filterMode) {
         if (FilterService.hasFilter(fdd)) {
           this.filterViewList = this.dataService.getSpaceData(fdd);
         }
       } else {
-        console.log('loading all...');
+        // normal loading
         this.filterViewList = this.dataService.getSpaceData();
       }
     });
   }
+  //#endregion
 
-  public trackItem(i, item) {
-    return item.flight_number;
-  }
+  //#region Methods
+  public trackItem = (i, item) => item.flight_number;
+
+  //#endregion
 }

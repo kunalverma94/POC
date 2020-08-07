@@ -1,3 +1,4 @@
+<!--Card Image -->
 <div class="image">
   <img
     width="75%"
@@ -7,6 +8,7 @@
     alt="{{ data?.mission_name }}"
   />
 </div>
+<!--Card Contect -->
 <div class="card-content">
   <div class="card-title blue-label bold">{{ data?.mission_name }} # {{ data?.flight_number }}</div>
   <div class="mission-ids">
@@ -19,6 +21,7 @@
       </ul>
     </div>
   </div>
+  <!-- Details -->
   <div class="details">
     <div class="item-detail-row">
       <div class="item-label bold">Launch Year</div>
@@ -43,6 +46,7 @@
   </div>
 </div>
 
+<!-- Templated -->
 <ng-template #no_content>
   <li>No mission ids.</li>
 </ng-template>

@@ -7,6 +7,8 @@ import { GenericFilter } from 'src/app/models/Genericfilters';
   styleUrls: ['./generic-filter.component.scss'],
 })
 export class GenericFilterComponent {
+  //#region Proerties
+
   @Input()
   public data: GenericFilter;
 
@@ -15,8 +17,12 @@ export class GenericFilterComponent {
 
   public activeOption = this.data?.default;
 
+  //#endregion
+
+  //#region Methods
   public activate(option) {
     this.activeOption = this.activeOption === option ? undefined : option;
     this.selectEvent.emit({ [this.data.key]: this.activeOption });
   }
+  //#endregion
 }

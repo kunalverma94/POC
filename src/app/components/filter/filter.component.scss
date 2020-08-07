@@ -12,6 +12,7 @@
   padding: $filter-padding;
   background: var(--bg2);
   margin: $filter-margin;
+  max-height: 600px;
 }
 :host {
   grid-area: filter;

@@ -9,30 +9,30 @@ import { AppFilters } from './predefined-filters';
   providedIn: 'root',
 })
 export class FilterService {
+  //#region Proerties
   // tslint:disable: variable-name
   private _currentFilters = new BehaviorSubject<DataFilters>({});
 
-  public get filterMode(): boolean {
-    return window?.location?.search !== '';
-  }
   public filters: GenericFilter[] = AppFilters;
 
-  public static hasFilter(critaria: DataFilters): boolean {
-    return (
-      critaria &&
-      Object.keys(critaria).length !== 0 &&
-      Object.keys(critaria).findIndex((dd) => critaria[dd] != undefined) > -1
-    );
+  public get filterMode(): boolean {
+    return window?.location?.search !== '';
   }
 
   public get AppliedFilters(): BehaviorSubject<DataFilters> {
     return this._currentFilters;
   }
 
+  public static hasFilter = (critaria: DataFilters) =>
+    critaria &&
+    Object.keys(critaria).length !== 0 &&
+    Object.keys(critaria).findIndex((dd) => critaria[dd] != undefined) > -1;
+  //#endregion
+
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.loadDefaultFilters();
   }
-
+  //#region Methods
   public setFilters(dataFilters: DataFilters) {
     if (dataFilters) {
       const newFilter = { ...this._currentFilters.value, ...dataFilters };
@@ -45,8 +45,8 @@ export class FilterService {
   private loadDefaultFilters() {
     this.activatedRoute.queryParams.subscribe((params: DataFilters) => {
       this.filters.forEach((g) => (g.default = params[g.key]));
-      console.log(params);
       this._currentFilters.next(params);
     });
   }
+  //#endregion
 }
