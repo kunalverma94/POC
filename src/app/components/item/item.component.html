@@ -1,10 +1,5 @@
 <figure>
-  <img
-    [lazyLoad]="data?.links?.mission_patch_small"
-    src="./assets/loading.gif"
-    [errorImage]="'./assets/404.jpg'"
-    alt="{{ data?.mission_name }}"
-  />
+  <img src="{{ data?.links?.mission_patch_small }}" alt="{{ data?.mission_name }}" />
 </figure>
 
 <div>
