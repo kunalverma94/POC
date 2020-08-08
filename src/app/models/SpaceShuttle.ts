@@ -9,5 +9,4 @@ export interface SpaceShuttle {
   land_success: boolean;
   rocket: any;
   links: Links;
-  show: boolean;
 }

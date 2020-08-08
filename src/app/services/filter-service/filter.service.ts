@@ -26,7 +26,8 @@ export class FilterService {
   public static hasFilter = (critaria: DataFilters) =>
     critaria &&
     Object.keys(critaria).length !== 0 &&
-    Object.keys(critaria).findIndex((dd) => critaria[dd] != undefined) > -1;
+    // tslint:disable-next-line: triple-equals
+    Object.keys(critaria).findIndex((dd) => critaria[dd] != undefined) > -1
   //#endregion
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {

@@ -21,10 +21,10 @@
   "dataGroups": [
     {
       "version": 1,
-      "urls": ["https://api.spacexdata.com/**", "https://poc7.herokuapp.com/**"],
+      "urls": ["https://api.spacexdata.com/**", "https://poc7.herokuapp.com/**", "https://images2.imgbox.com/**"],
       "cacheConfig": {
         "maxAge": "3d",
-        "maxSize": 99999
+        "maxSize": 999999
       },
       "name": "api"
     }

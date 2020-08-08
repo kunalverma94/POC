@@ -15,4 +15,22 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
+
+  it('should containt nav', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.nativeElement;
+    expect(app.querySelector('app-nav')).toBeDefined();
+  });
+
+  it('should containt home', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.nativeElement;
+    expect(app.querySelector('app-home')).toBeDefined();
+  });
+
+  it('should containt footer', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.nativeElement;
+    expect(app.querySelector('app-footer')).toBeDefined();
+  });
 });

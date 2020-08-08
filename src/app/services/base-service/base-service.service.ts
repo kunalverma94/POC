@@ -35,7 +35,7 @@ export class BaseServiceService {
         delay(2000)
       );
     }
-  };
+  }
 
   protected logError(err: any) {
     console.log(new Date(), 'logging error....', err);
