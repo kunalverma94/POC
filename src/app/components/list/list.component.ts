@@ -14,6 +14,7 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   public filterViewList: Observable<SpaceShuttle[]>;
   public loading = false;
   public limit = 20;
+
   //#endregion
 
   constructor(private dataService: SpaceXDataService, private filterService: FilterService) {}
@@ -53,11 +54,10 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   public trackItem = (i, item) => item.flight_number;
 
   private loadEvent(): (this: Window, ev: Event) => any {
+    const MOBILE_OFFSET = 150;
     return () => {
-      if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-        if (this.filterViewList) {
-          this.limit += 10;
-        }
+      if (window.innerHeight + window.scrollY + MOBILE_OFFSET >= document.body.scrollHeight) {
+        this.limit += 10;
       }
     };
   }
