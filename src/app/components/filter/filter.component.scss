@@ -12,6 +12,8 @@
   padding: $filter-padding;
   background: var(--bg2);
   margin: $filter-margin;
+  box-shadow: $shadow;
+  border-radius: $option-radii;
 }
 
 :host {

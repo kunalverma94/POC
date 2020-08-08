@@ -1,8 +1,10 @@
+@import '../../../style-variables/style-variables.scss';
+
 :host {
   display: flex;
   justify-content: center;
   position: static;
   width: 100%;
   bottom: 0;
-  font-size: 18px;
+  font-size: $font-size-xlarge;
 }

@@ -23,17 +23,22 @@ export class ListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.filterService.AppliedFilters.subscribe((fdd) => {
-      // Filter Mode and Filter Applied
-      if (this.filterService.filterMode) {
-        if (FilterService.hasFilter(fdd)) {
-          this.filterViewList = this.dataService.getSpaceData(fdd);
+    this.filterService.AppliedFilters.subscribe(
+      (fdd) => {
+        // Filter Mode and Filter Applied
+        if (this.filterService.filterMode) {
+          if (FilterService.hasFilter(fdd)) {
+            this.filterViewList = this.dataService.getSpaceData(fdd);
+          }
+        } else {
+          // normal loading
+          this.filterViewList = this.dataService.getSpaceData();
         }
-      } else {
-        // normal loading
-        this.filterViewList = this.dataService.getSpaceData();
+      },
+      (error) => {
+        console.log(error);
       }
-    });
+    );
   }
   //#endregion
 

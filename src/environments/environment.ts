@@ -8,6 +8,7 @@ export const environment = {
   title: 'SpaceX Launch Programs',
   API: {
     spaceXData: 'https://api.spaceXdata.com',
+    // spaceXData: '/api/?',
   },
   appsettings: {
     LIMIT: 100,
