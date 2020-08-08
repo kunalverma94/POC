@@ -40,7 +40,7 @@
 
 - PWA
   - Service Worker for caching request/Resources
-  - Application works even Offline (without Internet) load pages and web request.
+  - **Application works even Offline (without Internet) load pages and web request.**
   - Provided provision for BaseService Implementation with Retry Strategy 5 time with interval of 5s (disabled as causing issue on AG universal,may need some time with it )
 
 - Deployment
