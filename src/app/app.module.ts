@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x-data.service';
@@ -36,6 +36,7 @@ import { FilterService } from './services/filter-service/filter.service';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'POC' }),
+    BrowserTransferStateModule,
     LazyLoadImageModule,
     AppRoutingModule,
     HttpClientModule,
