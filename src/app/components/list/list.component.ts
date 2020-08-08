@@ -21,7 +21,7 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   //#region LifeCycle Hooks
   ngOnInit(): void {
     this.filterViewList = this.dataService.getSpaceData();
-    addEventListener('scroll', this.loadEvent());
+    window.addEventListener('scroll', this.loadEvent());
   }
 
   ngAfterViewInit(): void {
@@ -45,7 +45,7 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    removeEventListener('scroll', this.loadEvent());
+    window.removeEventListener('scroll', this.loadEvent());
   }
   //#endregion
 
