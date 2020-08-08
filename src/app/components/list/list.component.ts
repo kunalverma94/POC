@@ -55,7 +55,9 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   private loadEvent(): (this: Window, ev: Event) => any {
     return () => {
       if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-        this.limit += 10;
+        if (this.filterViewList) {
+          this.limit += 10;
+        }
       }
     };
   }
