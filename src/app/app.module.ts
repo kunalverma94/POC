@@ -7,7 +7,6 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x-data.service';
 import { environment } from 'src/environments/environment';
 import { AppComponent } from './components/app/app.component';
-import { BaseComponent } from './components/base/base.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { GenericFilterComponent } from './components/filter/generic-filter/generic-filter.component';
 import { HomeComponent } from './components/home/home.component';
@@ -34,7 +33,6 @@ import { FilterService } from './services/filter-service/filter.service';
     GenericFilterComponent,
     LoadingComponent,
     NotFoundComponent,
-    BaseComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'POC' }),

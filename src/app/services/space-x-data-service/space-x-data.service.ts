@@ -28,7 +28,7 @@ export class SpaceXDataService extends BaseServiceService {
     return this.httpGET<SpaceShuttle[]>(`${this.PATH}${this.getUrlFromCritarion(critaria)}`).pipe(
       map((o) =>
         o.map((ox) => {
-          ox.land_success = ox.rocket.first_stage?.cores[0].land_success;
+          ox.land_success = ox.rocket?.first_stage?.cores[0].land_success;
           return ox;
         })
       )
