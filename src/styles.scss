@@ -16,12 +16,12 @@ body {
   min-width: 360px;
 }
 
-ul {
-  margin: 0;
-}
-
-.bold {
+label,h3 {
   font-weight: 900;
+}
+h2{
+  margin: 0;
+  padding: 0.3rem;
 }
 .blue-label {
   color: var(--ltc);

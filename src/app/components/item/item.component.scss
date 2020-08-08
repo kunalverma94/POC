@@ -18,15 +18,28 @@
 .image {
   background: var(--bg);
   text-align: center;
-  padding: $one-padding;
+  min-height: 230px;
 }
 
-.item-detail-row {
+.details>div {
   display: flex;
   justify-content: space-between;
   margin: $option-radii;
 }
+.mid {
+  flex-direction: column;
+}
+
+.blue-label.list {
+  display: list-item;
+  margin-left: 20px;
+}
 
 .card-title {
   padding: $filter-padding;
+}
+@media screen and (min-width: $sky-size-screen-tablet) {
+  .image {
+    min-height:unset;
+  }
 }
