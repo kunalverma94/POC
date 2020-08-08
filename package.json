@@ -4,13 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "node dist/POC/server/main",
-    "build": "ng lint && ng test --watch=false && ng build --prod && ng run POC:server:production",
+    "build": "ng lint && ng build --prod && ng run POC:server:production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run POC:serve-ssr",
     "serve:ssr": "node dist/POC/server/main.js",
-    "build:ssr": "ng lint && ng test --watch=false && ng build --prod && ng run POC:server:production",
+    "build:ssr": "ng lint && ng build --prod && ng run POC:server:production",
     "prerender": "ng run POC:prerender",
     "start:heroku": "node dist/POC/server/main",
     "postinstall": "npm run build:ssr"
