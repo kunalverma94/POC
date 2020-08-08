@@ -2,10 +2,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x-data.service';
-import { environment } from 'src/environments/environment';
 import { AppComponent } from './components/app/app.component';
 import { BaseComponent } from './components/base/base.component';
 import { FilterComponent } from './components/filter/filter.component';
@@ -42,7 +40,6 @@ import { FilterService } from './services/filter-service/filter.service';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [HttpClientModule, FilterService, SpaceXDataService],
   bootstrap: [AppComponent],
