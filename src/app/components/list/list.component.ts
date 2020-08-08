@@ -13,7 +13,7 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   //#region Properties
   public filterViewList: Observable<SpaceShuttle[]>;
   public loading = false;
-  public limit = 30;
+  public limit = 20;
   //#endregion
 
   constructor(private dataService: SpaceXDataService, private filterService: FilterService) {}
