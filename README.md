@@ -40,7 +40,8 @@
 
 - PWA
   - Service Worker for caching request/Resources
-  - BaseService Implementation with Retry Strategy 5 time with interval of 5s
+  - **Application works even Offline (without Internet) load pages and web request.**
+  - Provided provision for BaseService Implementation with Retry Strategy 5 time with interval of 5s (disabled as causing issue on AG universal,may need some time with it )
 
 - Deployment
   - Continuous build pipeline on Heroku into staging
@@ -100,6 +101,12 @@ Local
 ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/lhl.jpg)
 
 Staging Heroku
+# #I had enabled service worker that allows showing cached app
+
+- Works Even IN offline mode (Airplain Mode) loading large content at once 
+
+- Loading items on scroll or lazy loding ight help . But that may defeats the purpose of assignment
+
 
 ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/lhh.jpg)
 
