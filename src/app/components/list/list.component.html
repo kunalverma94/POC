@@ -1,6 +1,8 @@
 <ng-template let-items [ngTemplateOutletContext]="{ $implicit: filterViewList | async }" [ngTemplateOutlet]="t" #t>
   <!-- List Loading -->
-  <app-item *ngFor="let values of items; trackBy: trackItem" [data]="values"> </app-item>
+  <ng-container *ngFor="let values of items;let i = index; trackBy: trackItem" >
+    <app-item [data]="values" *ngIf="i < limit" > </app-item>
+  </ng-container>
   <!-- Loading... -->
   <img *ngIf="items === null" alt="loading..." src="./assets/loading.gif" />
   <!-- No COntent -->

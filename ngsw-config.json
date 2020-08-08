@@ -6,7 +6,7 @@
       "name": "app",
       "installMode": "prefetch",
       "resources": {
-        "files": ["/favicon.ico","/index.html", "/manifest.webmanifest", "/*.css", "/*.js"]
+        "files": ["/favicon.ico", "/index.html", "/manifest.webmanifest", "/*.css", "/*.js"]
       }
     },
     {
@@ -21,14 +21,7 @@
   "dataGroups": [
     {
       "version": 1,
-      "urls": [
-        "https://api.spacexdata.com/**",
-        "https://poc7.herokuapp.com",
-        "https://poc7.herokuapp.com/**",
-        "https://poc9.herokuapp.com",
-        "https://poc9.herokuapp.com/**",
-        "https://images2.imgbox.com/**"
-      ],
+      "urls": ["https://api.spacexdata.com/**", "https://images2.imgbox.com/**"],
       "cacheConfig": {
         "maxAge": "3d",
         "maxSize": 999999

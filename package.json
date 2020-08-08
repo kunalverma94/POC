@@ -11,6 +11,7 @@
     "dev:ssr": "ng run POC:serve-ssr",
     "serve:ssr": "node dist/POC/server/main.js",
     "build:ssr": "ng lint && ng build --prod && ng run POC:server:production",
+    "build:ll": "ng build --prod && ng run POC:server:production",
     "prerender": "ng run POC:prerender",
     "start:heroku": "node dist/POC/server/main",
     "postinstall": "npm run build:ssr"
