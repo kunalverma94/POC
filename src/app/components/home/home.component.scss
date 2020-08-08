@@ -6,8 +6,6 @@ main {
   grid-template-areas:
     'filter'
     'list';
-  grid-gap: $generic-margin;
-  padding: $generic-margin;
   justify-content: center;
 }
 // Media Query Tablet/PC

@@ -18,10 +18,12 @@
 .image {
   background: var(--bg);
   text-align: center;
-  min-height: 230px;
+  min-width: 150px;
 }
-
-.details>div {
+.image > img {
+  width: 100%;
+}
+.details > div {
   display: flex;
   justify-content: space-between;
   margin: $option-radii;
@@ -40,6 +42,6 @@
 }
 @media screen and (min-width: $sky-size-screen-tablet) {
   .image {
-    min-height:unset;
+    min-height: unset;
   }
 }

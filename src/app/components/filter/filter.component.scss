@@ -7,13 +7,13 @@
   align-items: center;
 }
 
-:host {
+.block {
   min-width: $filter-min;
   padding: $filter-padding;
   background: var(--bg2);
   margin: $filter-margin;
-  max-height: 600px;
 }
+
 :host {
   grid-area: filter;
 }
