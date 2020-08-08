@@ -1,13 +1,11 @@
 <div class="block">
-  <label>
+  <div class="filter-label">
     <h2>Filters</h2>
-  </label>
+  </div>
   <!-- Filter List Loops -->
-  <section class="filter-context">
-    <app-generic-filter
-      *ngFor="let filter of fsvc.filters"
-      [data]="filter"
-      (selectEvent)="fsvc.setFilters($event)"
-    ></app-generic-filter>
-  </section>
+  <app-generic-filter
+    *ngFor="let filter of fsvc.filters"
+    [data]="filter"
+    (selectEvent)="fsvc.setFilters($event)"
+  ></app-generic-filter>
 </div>

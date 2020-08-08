@@ -1,12 +1,5 @@
 @import '../../style-variables/style-variables.scss';
 
-.filter-context {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .block {
   min-width: $filter-min;
   padding: $filter-padding;
@@ -14,8 +7,15 @@
   margin: $filter-margin;
   box-shadow: $shadow;
   border-radius: $option-radii;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 :host {
   grid-area: filter;
+}
+.filter-label {
+  width: 100%;
 }
