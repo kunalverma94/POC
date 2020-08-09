@@ -32,6 +32,8 @@ export class ListComponent implements OnInit, AfterContentInit, OnDestroy {
       (fdd) => {
         this.limit = 20;
         // Filter Mode and Filter Applied
+        // Could have gone for simple filter without api
+        // As mentioned in assignment to use api endpoint for filter
         if (this.filterService.filterMode) {
           if (FilterService.hasFilter(fdd)) {
             this.filterViewList = this.dataService.getSpaceData(fdd);

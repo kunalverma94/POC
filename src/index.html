@@ -11,7 +11,19 @@
     <link rel="manifest" href="manifest.webmanifest" />
     <meta name="theme-color" content="#1976d2" />
   </head>
-  <body>
+  <!-- App style Inline for performance -->
+  <!-- TO DO move to  cdn anf deffer loading  -->
+  <body
+    style="
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+        'Helvetica Neue', sans-serif;
+      font-size: 14;
+      color: var(--tcc);
+      transition: background, color 0.5s;
+      min-width: 360px;
+    "
+  >
     <app-root></app-root>
     <noscript>Please enable JavaScript to continue using this application.</noscript>
   </body>

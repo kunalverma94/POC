@@ -31,7 +31,10 @@ figure {
   justify-content: space-between;
   margin: $option-radii 0px;
 }
-
+label,
+.card-title {
+  font-weight: 900;
+}
 .card-title {
   padding: $filter-padding 0rem;
   font-weight: $bold;

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { setTheme } from 'src/app/utility/utility';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,8 +14,6 @@ export class NavComponent {
   public switchMode() {
     this.nightMode = !this.nightMode;
     const mode = this.nightMode ? 'night' : 'day';
-    Object.keys(environment.appsettings.THEMES[mode]).forEach((c) =>
-      document.documentElement.style.setProperty(c, environment.appsettings.THEMES[mode][c])
-    );
+    setTheme(mode);
   }
 }
