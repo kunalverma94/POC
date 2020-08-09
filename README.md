@@ -107,7 +107,9 @@ PC View
 
 On deployment linting is performed that ensures quality .By extending build with ng lint. Build have basic set of static code quality checks and fail the build if there is any error.Heroku :CI /CD
 
+
 ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/heroku1.jpg)
+
 
 ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/heroklog.jpg)
 
