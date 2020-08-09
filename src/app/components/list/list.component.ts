@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SpaceShuttle } from 'src/app/models/SpaceShuttle';
 import { FilterService } from 'src/app/services/filter-service/filter.service';
@@ -9,13 +9,17 @@ import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ListComponent implements OnInit, AfterContentInit, OnDestroy {
   //#region Properties
   public filterViewList: Observable<SpaceShuttle[]>;
   public limit = 20;
   //#endregion
 
-  constructor(private dataService: SpaceXDataService, private filterService: FilterService) {}
+  constructor(
+    private dataService: SpaceXDataService,
+    private filterService: FilterService,
+    private ref: ChangeDetectorRef
+  ) {}
 
   //#region LifeCycle Hooks
   ngOnInit(): void {
@@ -23,7 +27,7 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
     window.addEventListener('scroll', this.loadEvent());
   }
 
-  ngAfterViewInit(): void {
+  ngAfterContentInit(): void {
     this.filterService.AppliedFilters.subscribe(
       (fdd) => {
         this.limit = 20;

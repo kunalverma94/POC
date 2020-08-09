@@ -27,7 +27,7 @@ export class FilterService {
     critaria &&
     Object.keys(critaria).length !== 0 &&
     // tslint:disable-next-line: triple-equals
-    Object.keys(critaria).findIndex((dd) => critaria[dd] != undefined) > -1
+    Object.keys(critaria).findIndex((dd) => critaria[dd] != undefined) > -1;
   //#endregion
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
@@ -37,7 +37,7 @@ export class FilterService {
   public setFilters(dataFilters: DataFilters) {
     if (dataFilters) {
       const newFilter = { ...this._currentFilters.value, ...dataFilters };
-      this.router.navigate([FilterService.hasFilter(dataFilters) ? 'filter' : ''], {
+      this.router.navigate([FilterService.hasFilter(dataFilters) ? 'query' : ''], {
         queryParams: newFilter,
       });
     }

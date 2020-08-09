@@ -5,8 +5,8 @@ import { NotFoundComponent } from '../components/shared/not-found/not-found/not-
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, redirectTo: '', pathMatch: 'full' },
+  { path: 'query', component: HomeComponent, pathMatch: 'prefix' },
   { path: '', component: HomeComponent },
-  { path: 'query/', component: HomeComponent },
   { path: '404', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent },
 ];
