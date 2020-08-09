@@ -131,20 +131,18 @@ The test showed better performance on local than on heroku server.
 
 Local 90+
 
-![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/ll.jpg)
-
-![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/lll.jpg)
+![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/ll.jpg)
 
 Heroku: On Heroku varies from 66 -88 % ..avg :74%
 
   Staging
   
-![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/ls.jpg)
+![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/ls.jpg)
 
-![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/lss.jpg)
+![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/lss.jpg)
 
   Production
   
-  ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/lp.jpg)
+  ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/lp.jpg)
 
- ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/lpp.jpg)
+ ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/lpp.jpg)
