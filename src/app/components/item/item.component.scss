@@ -8,7 +8,7 @@ figure {
   justify-content: center;
   align-items: center;
   min-width: $card-measure;
-  min-height:$card-measure;
+  min-height: $card-measure;
 }
 
 :host {
@@ -34,6 +34,7 @@ figure {
 
 .card-title {
   padding: $filter-padding 0rem;
+  font-weight: $bold;
 }
 .blue-label,
 .card-title,
