@@ -79,7 +79,7 @@
 - Server Side
   1. The initial launch programs landing page has to be server side rendered.
   
-  ![Server Side Code](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/ssr.jpg)
+  ![Server Side Code](https://raw.githubusercontent.com/kunalverma94/just4gag/master/ssr.jpg)
 
 █■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█
 
