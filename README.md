@@ -119,7 +119,7 @@ On deployment linting is performed that ensures quality .By extending build with
 
 ## Testing
 
-![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/test.jpg)
+  Added 19 testcases to test basic functionality of components
 
 
 █■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█
@@ -132,6 +132,8 @@ The test showed better performance on local than on heroku server.
 Local 90+
 
 ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/ll.jpg)
+
+![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/lll.jpg)
 
 Heroku: On Heroku varies from 66 -88 % ..avg :74%
 
