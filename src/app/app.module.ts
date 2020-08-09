@@ -13,7 +13,6 @@ import { HomeComponent } from './components/home/home.component';
 import { ItemComponent } from './components/item/item.component';
 import { ListComponent } from './components/list/list.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { LoadingComponent } from './components/shared/loading/loading.component';
 import { NavComponent } from './components/shared/nav/nav.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found/not-found.component';
 import { AppRoutingModule } from './modules/app-routing.module';
@@ -31,7 +30,6 @@ import { FilterService } from './services/filter-service/filter.service';
     FilterComponent,
     BooleanEmojiPipe,
     GenericFilterComponent,
-    LoadingComponent,
     NotFoundComponent,
   ],
   imports: [
