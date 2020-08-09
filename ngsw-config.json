@@ -24,6 +24,7 @@
       "urls": [
         "https://api.spacexdata.com/**",
         "https://poc7.herokuapp.com",
+        "http://localhost:4000",
         "https://poc9.herokuapp.com",
         "https://images2.imgbox.com/**"
       ],

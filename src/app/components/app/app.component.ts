@@ -8,7 +8,13 @@ import { setTheme } from './../../utility/utility';
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {
-    const defaultTheme = 'day';
-    setTheme(defaultTheme);
+    this.init();
+  }
+
+  private init() {
+    try {
+      const defaultTheme = 'day';
+      setTheme(defaultTheme);
+    } catch (error) {}
   }
 }
