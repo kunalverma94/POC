@@ -1,53 +1,55 @@
-<figure>
-  <img
-    [lazyLoad]="data?.links?.mission_patch_small"
-    src="./assets/loading.gif"
-    [errorImage]="'./assets/404.jpg'"
-    alt="{{ data?.mission_name }}"
-  />
-</figure>
+<div class="card">
+  <figure>
+    <img
+      [lazyLoad]="data?.links?.mission_patch_small"
+      src="./assets/loading.gif"
+      [errorImage]="'./assets/404.jpg'"
+      alt="{{ data?.mission_name }}"
+    />
+  </figure>
 
-<div>
-  <!-- Title -->
-  <div class="card-title">{{ data?.mission_name }} # {{ data?.flight_number }}</div>
-  <!-- Mission Ids -->
   <div>
-    <label>Mission Ids</label>
-    <div class="mlist">
-      <ng-container *ngIf="data?.mission_id && data?.mission_id.length > 0; else no_content">
-        <div *ngFor="let mi of data.mission_id">{{ mi }}</div>
-      </ng-container>
+    <!-- Title -->
+    <div class="card-title">{{ data?.mission_name }} # {{ data?.flight_number }}</div>
+    <!-- Mission Ids -->
+    <div>
+      <label>Mission Ids</label>
+      <div class="mlist">
+        <ng-container *ngIf="data?.mission_id && data?.mission_id.length > 0; else no_content">
+          <div *ngFor="let mi of data.mission_id">{{ mi }}</div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Details -->
+    <div class="detail">
+      <!-- Year -->
+      <div>
+        <label>Launch Year</label>
+        <div class="blue-label">
+          {{ data?.launch_year }}
+        </div>
+      </div>
+
+      <!-- Launch -->
+      <div>
+        <label>Successful Launch</label>
+        <div>
+          {{ data?.launch_success | booleanEmojiPipe }}
+        </div>
+      </div>
+
+      <!-- Land -->
+      <div>
+        <label>Successful Landing</label>
+        <div>
+          {{ data?.land_success | booleanEmojiPipe }}
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Details -->
-  <div class="detail">
-    <!-- Year -->
-    <div>
-      <label>Launch Year</label>
-      <div class="blue-label">
-        {{ data?.launch_year }}
-      </div>
-    </div>
-
-    <!-- Launch -->
-    <div>
-      <label>Successful Launch</label>
-      <div>
-        {{ data?.launch_success | booleanEmojiPipe }}
-      </div>
-    </div>
-
-    <!-- Land -->
-    <div>
-      <label>Successful Landing</label>
-      <div>
-        {{ data?.land_success | booleanEmojiPipe }}
-      </div>
-    </div>
-  </div>
+  <ng-template #no_content>
+    No mission ids.
+  </ng-template>
 </div>
-
-<ng-template #no_content>
-  No mission ids.
-</ng-template>

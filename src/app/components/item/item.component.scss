@@ -11,7 +11,7 @@ figure {
   min-height: $card-measure;
 }
 
-:host {
+.card {
   display: flex;
   flex-direction: column;
   background: var(--bg2);
@@ -22,7 +22,7 @@ figure {
   width: $card-measure;
 }
 
-:host:hover {
+.card:hover {
   box-shadow: 8px 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
