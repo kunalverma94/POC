@@ -1,4 +1,4 @@
-import { AfterContentInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChildren } from '@angular/core';
+import { AfterContentInit, Component, OnDestroy, OnInit, ViewChildren } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SpaceShuttle } from 'src/app/models/SpaceShuttle';
 import { FilterService } from 'src/app/services/filter-service/filter.service';
@@ -19,11 +19,7 @@ export class ListComponent implements OnInit, AfterContentInit, OnDestroy {
   private items;
   //#endregion
 
-  constructor(
-    private dataService: SpaceXDataService,
-    private filterService: FilterService,
-    private ref: ChangeDetectorRef
-  ) {}
+  constructor(private dataService: SpaceXDataService, private filterService: FilterService) {}
 
   //#region LifeCycle Hooks
   ngOnInit(): void {}
