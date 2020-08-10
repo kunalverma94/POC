@@ -4,7 +4,8 @@
 
 ## Code:
 
-- Deployed stg Env : [http://poc9.herokuapp.com](http://poc9.herokuapp.com/)
+- Deployed stg Env : [http://poc9.herokuapp.com](http://poc9.herokuapp.com)
+- Deployed Prod Env : [http://poc7.herokuapp.com](http://poc7.herokuapp.com)
 - Code: [https://github.com/kunalverma94/POC](https://github.com/kunalverma94/POC)
 - Video: [Link](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/32ewd.mp4)
 - Document:[Link](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/XT%20Coding%20Assignment.docx)
@@ -20,6 +21,8 @@
 2. npm run build:ssr –production
 3. npm start
 
+█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█
+
 # Angular Stack
 
 - UI
@@ -31,7 +34,6 @@
   - Organized project structure
   - Custom Pipe for boolean representation
   - Was going for pagination / lazy loading on scroll but not sure, if it defeats the purpose of assignment to render large amount of data?
-
 - Style
   - Responsive App All manages in SCSS Breakpoint
   - Managed most of style using variable for maintainability Scss variables :colors ,measurements , variables
@@ -40,144 +42,107 @@
 
 - PWA
   - Service Worker for caching request/Resources
-  - **Application works even Offline (without Internet) load pages and web request.**
-  - Provided provision for BaseService Implementation with Retry Strategy 5 time with interval of 5s (disabled as causing issue on AG universal,may need some time with it )
+  - **App work offline mode once loaded**.
+  - BaseService Implementation with Retry Strategy 5 time with interval of 5s
 
 - Deployment
   - Continuous build pipeline on Heroku into staging
   - [http://poc9.herokuapp.com](http://poc9.herokuapp.com/)
+  - [https://poc7.herokuapp.com/](https://poc7.herokuapp.com/)
   - [https://github.com/kunalverma94/POC](https://github.com/kunalverma94/POC)
-
 - SSR
   - Angular Universal for SSR
+  
+
+█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█
+
 
 # TO-DO- Limited by Time
 
-- Implementation much more efficient Service Worker
+- Style cdn
 - Refactoring
 - Added more testcases
-- Modularizing
+- Modularizing Filter Module
 - Notifications /User Friendly Error messages
 
-# Responsive
 
--
-## Mobiles Less than 700
+█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█
+
+## Functionality
+
+- Client Side
+  1. User is able to Filter the results with help of provided Filters.
+  2. Applying any Filter reflect the below changes:
+    - Selected filter change to selected state as shown in the visual comp.
+    - Applied filters change the URL and update the Page with latest records without refreshing the page.
+    - If the page is refreshed with the applied filters in the URL – the resulting page is server side rendered &amp; subsequent filters are again applied on client side rendered.
+- Server Side
+  1. The initial launch programs landing page has to be server side rendered.
+  
+  ![Server Side Code](https://raw.githubusercontent.com/kunalverma94/just4gag/master/ssr.jpg)
+
+█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█
+
+## Responsive Design
+
+Mobiles View
 
 ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/700.jpg)
 
--
-## Tablets: 700-1024
+Tablets View
 
 ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/1024.jpg)
 
--
-## PC wide Screen 1024-1440
+PC View
 
 ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/1440.jpg)
 
 ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/night.jpg)
 
-## Deployment
 
-- Heroku :CI /CD
+█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█
+
+
+## Deployment Build and Packaging
+
+On deployment linting is performed that ensures quality .By extending build with ng lint. Build have basic set of static code quality checks and fail the build if there is any error.Heroku :CI /CD
+
 
 ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/heroku1.jpg)
 
+
 ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/heroklog.jpg)
+
+
+█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█
+
 
 ## Testing
 
-![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/test.jpg)
+  Added 19 testcases to test basic functionality of components
+
+
+█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█■█
+
 
 ## LightHouse Test
 
 The test showed better performance on local than on heroku server.
 
-On Heroku varies from 66 -88 % ..avg :74%
+Local 90+
 
-Local
+![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/ll.jpg)
 
-![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/lhl.jpg)
+Heroku: On Heroku varies from 66 -88 % ..avg :74%
 
-Staging Heroku
-# #I had enabled service worker that allows showing cached app
+  Staging
+  
+![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/ls.jpg)
 
-- Works Even IN offline mode (Airplain Mode) loading large content at once 
+![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/lss.jpg)
 
-- Loading items on scroll or lazy loding ight help . But that may defeats the purpose of assignment
+  Production
+  
+  ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/lp.jpg)
 
-
-![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/lhh.jpg)
-
-![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/poc/lhh2.jpg)
-
-#Angular Stack
-
-
-	-UI
-		-Custom Reusable Components
-		-Generic component for Filter.
-		-List Items
-		-Lazy loading images to improve page load performance
-		-Day/Night Mode
-		-Organized project structure
-    -Custom Pipe for boolean representation
-		-Was going for pagination / lazy loading on scroll but 
-		not sure,If it defeats the purpose of assignment to render large amount of data?
-		
-	-Style
-		-Responsive App All manages in SCSS Breakpoint
-		-Managed most of style using variable for maintainability Scss variables :colors ,measurements , variables
-		-Custom Loading animation
-		-CSS Grid Layout/Flex  Used for maintaing reponsiveness
-		
-	-PWA
-		-Service Worker for caching request/Resources
-		-BaseService Implementation with Retry Stratergy 5 time with interval of 5s 
-		
-	-Deployment
-		-Continuous build pipeline on Heroku into staging
-		-http://poc9.herokuapp.com/
-		-https://github.com/kunalverma94/POC
-
-	-SSR
-		-Angular Universal for SSR
-
-	-TO-DO- Limited By Time 
-		-Implementation much more efficient Service Worker
-		- Refactoring
-		- Added testcases 
-		- Modularizing
-		- Notifications /User Friendly Error messages
-
-
-
-
-# POC
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ ![](https://raw.githubusercontent.com/kunalverma94/just4gag/master/lpp.jpg)
