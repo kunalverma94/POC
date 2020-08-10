@@ -15,14 +15,13 @@ export class GenericFilterComponent {
   @Output()
   public selectEvent = new EventEmitter();
 
-  public activeOption = this.data?.default;
-
   //#endregion
 
   //#region Methods
   public activate(option) {
-    this.activeOption = this.activeOption === option ? undefined : option;
-    this.selectEvent.emit({ [this.data.key]: this.activeOption });
+    // tslint:disable-next-line: triple-equals
+    this.data.default = this.data?.default == option ? undefined : option;
+    this.selectEvent.emit({ [this.data.key]: this.data.default });
   }
   //#endregion
 }
