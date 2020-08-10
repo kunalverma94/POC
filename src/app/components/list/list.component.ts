@@ -1,8 +1,9 @@
-import { AfterContentInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChildren } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SpaceShuttle } from 'src/app/models/SpaceShuttle';
 import { FilterService } from 'src/app/services/filter-service/filter.service';
 import { SpaceXDataService } from 'src/app/services/space-x-data-service/space-x-data.service';
+import { ItemComponent } from '../item/item.component';
 
 @Component({
   selector: 'app-list',
@@ -13,6 +14,9 @@ export class ListComponent implements OnInit, AfterContentInit, OnDestroy {
   //#region Properties
   public filterViewList: Observable<SpaceShuttle[]>;
   public limit = 20;
+
+  @ViewChildren(ItemComponent)
+  private items;
   //#endregion
 
   constructor(
@@ -22,10 +26,7 @@ export class ListComponent implements OnInit, AfterContentInit, OnDestroy {
   ) {}
 
   //#region LifeCycle Hooks
-  ngOnInit(): void {
-    this.loadList();
-    window.addEventListener('scroll', this.loadEvent());
-  }
+  ngOnInit(): void {}
 
   ngAfterContentInit(): void {
     this.filterService.AppliedFilters.subscribe(
@@ -39,13 +40,16 @@ export class ListComponent implements OnInit, AfterContentInit, OnDestroy {
             this.filterViewList = this.dataService.getSpaceData(fdd);
           }
         } else {
-          this.loadList();
+          if (!this.items || this.items?.length === 0) {
+            this.loadList();
+          }
         }
       },
       (error) => {
         console.log(error);
       }
     );
+    window.addEventListener('scroll', this.loadEvent());
   }
 
   ngOnDestroy(): void {
